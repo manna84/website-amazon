@@ -1,6 +1,8 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
 
+const product = require("./models/product")
+
 const app = express();
 
 app.engine('handlebars', exphbs());
@@ -19,7 +21,8 @@ app.get("/",(req, res)=>{
 app.get("/productListing",(req, res)=>{
 
     res.render("productListing", {
-        title : "Product Listing Page"
+        title : "Product Listing Page",
+        data : product.getAllProducts()
     })
 
 });

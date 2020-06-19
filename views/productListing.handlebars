@@ -1,2 +1,16 @@
 <h2>Product listing</h2>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga sapiente iure autem cum, ea minima debitis, reiciendis nulla itaque non, molestias velit. Pariatur accusamus ab, ducimus molestiae corrupti aliquam sapiente.</p>
+
+<div class="container">
+{{#each data}}
+
+<div class="">
+    Title : {{this.title}}
+    Description : {{this.description}}
+    Price : {{this.price}}
+    <img src = "/img/{{this.imgPath}}">
+
+</div>
+
+{{/each}}
+</div>
