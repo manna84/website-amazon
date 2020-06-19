@@ -15,6 +15,14 @@ body {
     color: #555;
 }
 
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 /*--------------------------------------*/
 /*-----------Reusable-----------*/
 /*--------------------------------------*/
@@ -26,4 +34,25 @@ body {
 header {
     background-color: #131921;
     height: 5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-logo {
+    height: 2.5em;
+    width: auto;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-icon {
+    height: 10px;
 }
