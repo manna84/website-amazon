@@ -38,21 +38,80 @@ header {
     justify-content: space-between;
 }
 
-.main-logo {
-    height: 2.5em;
-    width: auto;
-}
-
-header nav ul {
-    display: flex;
-    justify-content: space-between;
-}
-
 .box-logo {
     display: flex;
     justify-content: space-between;
 }
 
+.main-logo {
+    height: 2.5em;
+    width: auto;
+}
+
 .search-icon {
     height: 10px;
 }
+
+/*-----------Main Nav-----------*/
+
+.main-nav {
+    margin: auto 0;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1em;
+}
+
+.main-nav a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.main-nav li {
+    margin: auto 1em;
+}
+
+/*-----------Buttons-----------*/
+
+.main-nav  button {
+    background-color: #FEBD69;
+    width: 9em;
+    padding: 8%;
+    border-radius: 200px;
+}
+
+.main-nav button:hover {
+    background-color: #fff;
+    transition: background-color .2s;
+}
+
+.main-nav button a {
+    color: #000;
+    font-size: 150%;
+}
+
+.main-nav button a:hover {
+    color:  #131921;
+    transition: color .2s;
+}
+
+/*-----------Links-----------*/
+
+.btn a {
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.btn a:hover {
+    color: #FEBD69;
+    border-bottom: 2px solid #FEBD69;
+    transition: color .2s, border-bottom .2s;
+}
+
+
+
+
