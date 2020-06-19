@@ -33,7 +33,7 @@ a {
 
 header {
     background-color: #131921;
-    height: 5vh;
+    height: 8vh;
     display: flex;
     justify-content: space-between;
 }
@@ -41,15 +41,12 @@ header {
 .box-logo {
     display: flex;
     justify-content: space-between;
+    margin: auto 2em;
 }
 
 .main-logo {
     height: 2.5em;
     width: auto;
-}
-
-.search-icon {
-    height: 10px;
 }
 
 /*-----------Main Nav-----------*/
@@ -93,7 +90,7 @@ header {
 }
 
 .main-nav button a:hover {
-    color:  #131921;
+    color:  #FEBD69;
     transition: color .2s;
 }
 
@@ -121,4 +118,35 @@ header {
 .cart-shopping li {
     margin:auto .125em;
 }
+
+
+/*-----------Search Bar-----------*/
+
+.search-box {
+    display: flex;
+    margin-left: 5em;
+}
+
+.search-box img {
+    height: 25px;
+    margin-left: 0;
+}
+
+.bar-search {
+    width: 40em;
+    padding: 2%;
+    border: 4px solid #FEBD69;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+}
+
+.search-box button {
+    width: 4em;
+    background-color: #FEBD69;
+    border: 4px solid #FEBD69;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
 
