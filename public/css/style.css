@@ -112,6 +112,13 @@ header {
     transition: color .2s, border-bottom .2s;
 }
 
+/*-----------Cart-----------*/
 
+.cart-shopping img {
+    height: 1.5em;
+}
 
+.cart-shopping li {
+    margin:auto .125em;
+}
 
