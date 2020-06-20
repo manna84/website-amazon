@@ -444,6 +444,10 @@ h3 {
 /*-----------Home Page-----------*/
 /*---------------------------------------------------------------------------------------------------*/
 
+/*--------------------------------------*/
+/*-----------Category Goods-----------*/
+/*--------------------------------------*/
+
 .banner img {
     width: 100%;
 }
@@ -469,23 +473,51 @@ h3 {
     margin: 1em auto;
 }
 
-.category-grid-box li:first-child a {
+.category-grid-box li:first-child a, .seller-head li:first-child a {
     color: rgb(68, 68, 68);
     font-weight: bold;
 }
 
-.category-grid-box li:last-child a {
+.category-grid-box li:last-child a, .seller-head li:last-child a {
     font-size: 80%;
     color: blue;
     font-weight: 400;
     border-bottom: .5px solid transparent;
 }
 
-.category-grid-box li:last-child a:hover {
+.category-grid-box li:last-child a:hover, .seller-head li:last-child a:hover {
     color: #e67e22;
     border-bottom: .5px solid #e67e22;
     transition: color .2s, border-bottom .2s;
 }
 
+/*--------------------------------------------*/
+/*-----------Best Seller Goods-----------*/
+/*--------------------------------------------*/
 
+.seller-grid-box {
+    display: grid;
+    grid-template-rows: auto auto;
+    background-color: #fff;
+    margin-bottom: 4em;
+}
+
+
+.seller-head ul {
+    display: flex;
+    padding: 2% 0 0 2%;
+}
+
+.seller-head li:last-child a{
+    margin-left: 1em;
+}
+
+.goods-list ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods-list img {
+    height: 15em;
+}
 
