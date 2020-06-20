@@ -78,7 +78,7 @@ const product = {
             price : "348",
             imgPath : "headphone.png",
             ratingPath : "rating-4.5.png",
-            reviews : 9887,
+            reviews : 9882,
             featured: true
             
         })
@@ -91,7 +91,11 @@ const product = {
 
     getFeaturedProducts()
     {
+        featureProductDB : [],
 
+        for(var i = 0; i < this.fakedb.length; i++) {
+            array.forEach(function(currentValue, index, arr), thisValue)
+        }
     }
 }
 
