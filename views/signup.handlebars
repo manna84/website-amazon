@@ -1,7 +1,9 @@
 <form>
     <img src="./img/amazon-logo-black.png" alt="amazon-logo" class="main-logo">
-    <section class="login-info">
-        <h2>Sign In</h2>
+    <section class="signin-info">
+        <h2>Create account</h2>
+        <label for = name>Name</label><br>
+        <input type="text" id = name name="name" placeholder="Please enter your name" required><br>
         <label for = email>Email</label><br>
         <input type="email" id = email name="email" placeholder="Please enter your email" required><br>
         <label for = password>Password</label><br>
@@ -10,14 +12,22 @@
             <img src="./img/alarm.svg" alt="alarm icon">
             <p>Password must consist of atleast 6 characters</p>
         </div>
-        <div class="help-box">
+        <label for = password>Password again</label><br>
+        <input type="password" id = password name="password" placeholder="At least 6 characters" minlength="6" required>
+
+        <button type="submit" class="create-btn">Create your amazon account</button>
+
+        <p class="create-copy">By creating an account, you agree to Amazon's <a href="">Conditions of Use</a> & <a href="">Privacy Notice</a>.</p>
+
+        <p class="create-copy-account">Already have an account? <a href="/login">Sign in</a></p>
+        {{!-- <div class="help-box">
             <img src="./img/info.svg" alt="info icon">
             <a href="">Need help?</a>
-        </div>
+        </div> --}}
     </section>
 
-    <section class="line">
+    {{!-- <section class="line">
         <h3>New to amazon</h3>
-    </section>
-    <button type="submit" class="create-btn">Create your amazon account</button>
+    </section> --}}
+    
 </form>

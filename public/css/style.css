@@ -36,6 +36,12 @@ input[type=text], button {
     outline: none;
 }
 
+p {
+    font-size: 70%;
+    font-weight: 500;
+}
+
+
 /*--------------------------------------*/
 /*-----------Header-----------*/
 /*--------------------------------------*/
@@ -271,7 +277,6 @@ footer section:first-of-type {
     margin: 20px 0;
     text-align: center;
     color: #555;
-    font-size: 80%;
 }
 
 
@@ -289,7 +294,7 @@ form .main-logo {
     height: 10em;
 }
 
-.login-info {
+.login-info,.signin-info {
     border: 1px solid #e7e7e7;
     width: 25%;
     margin: 0 auto;
@@ -299,7 +304,7 @@ label {
     font-weight: bold;
 }
 
-input[type=password],input[type=email] {
+input[type=password],input[type=email],.signin-info input[type=text] {
     width: 100%;
     margin: .4em 0 .825em 0;
     padding: 1.5%;
@@ -311,7 +316,6 @@ input[type=password],input[type=email] {
 }
 
 .pwd-alert p {
-    font-size: 70%;
     margin-left: .5em;
 }
 
@@ -398,5 +402,36 @@ h3 {
     display: block;
     margin: 0 auto 5em auto;
     width: 25%;
-    padding: .5% 0;
+    padding: .5% 0; background-color: #FEBD69;
+    border: .5px solid #767676;
+    border-radius: 2px;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-----------Signup Form-----------*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.signin-info {
+    margin-bottom: 5em;
+}
+
+.signin-info .create-btn {
+    width: 100%;
+    padding: 2% 0;
+    margin: .825em auto 1em auto;
+}
+
+.signin-info .pwd-alert {
+    margin-bottom: .825em;
+}
+
+.create-copy-account::before {
+    display: block;
+    content: "";
+    clear: both;
+    height: .5px;
+    width: 20%;
+    background-color: #767676;
+    margin: 3em auto;
+}
+
