@@ -91,10 +91,15 @@ const product = {
 
     getFeaturedProducts()
     {
-        featureProductDB : [],
+        featureProductDB : [];
 
-        for(var i = 0; i < this.fakedb.length; i++) {
-            array.forEach(function(currentValue, index, arr), thisValue)
+        for(let i = 0; i < this.fakedb.length; i++) {
+            this.fakedb.forEach((value) => {
+                if(value.featured === true) {
+                    featureProductDB.push(value);
+                }
+            }); 
+               
         }
     }
 }
