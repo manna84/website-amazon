@@ -93,12 +93,12 @@ const product = {
     {
         featureProductDB = [];
 
-        for(let i = 0; i < this.fakedb.length; i++) {
+        if(this.fakedb < 0) {
             this.fakedb.forEach((value) => {
                 if(value.featured === true) {
                     featureProductDB.push(value);
                 }
-            }); 
+            })
                
         }
     }

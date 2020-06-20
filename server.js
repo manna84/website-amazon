@@ -26,7 +26,8 @@ app.get("/productListing",(req, res)=>{
 
     res.render("productListing", {
         title : "Product Listing Page",
-        product : product.getAllProducts()
+        product : product.getAllProducts(),
+        featured : product.getFeaturedProducts()
     })
 
 });
