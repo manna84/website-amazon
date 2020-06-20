@@ -9,7 +9,7 @@
 
 body {
     font-family: 'lato', Arial, Helvetica, sans-serif;
-    background-color: #EAEDED;
+    background-color: rgb(247, 247, 247);
     font-size: 1.250em;
     font-weight: 300;
     color: #555;
@@ -49,6 +49,15 @@ section {
     margin: 0 auto;
 }
 
+button {
+    opacity: .8;
+}
+
+button:hover {
+    opacity: 1;
+    transition: .2s;
+}
+
 /*--------------------------------------*/
 /*-----------Header-----------*/
 /*--------------------------------------*/
@@ -85,7 +94,6 @@ header {
 
 .main-nav a {
     color: #fff;
-    text-transform: uppercase;
 }
 
 .main-nav li {
@@ -101,20 +109,13 @@ header {
     border-radius: 200px;
 }
 
-.main-nav button:hover {
-    background-color: #fff;
-    transition: background-color .2s;
-}
+
 
 .main-nav button a {
     color: #000;
     font-size: 150%;
 }
 
-.main-nav button a:hover {
-    color:  #FEBD69;
-    transition: color .2s;
-}
 
 /*-----------Links-----------*/
 
@@ -290,6 +291,7 @@ footer section:first-of-type {
 /*-----------Login Form-----------*/
 /*---------------------------------------------------------------------------------------------------*/
 
+
 form img {
     height: 20px;
 }
@@ -304,6 +306,7 @@ form .main-logo {
     border: 1px solid #e7e7e7;
     width: 25%;
     padding: 2%;
+    background-color: #fff;
 }
 label {
     font-weight: bold;
@@ -531,8 +534,30 @@ h3 {
     margin: 5em auto;
 }
 
+.product-bar-list {
+    margin-right: 2%;
+    width: 20%;
+}
+
+.product-bar-list li:first-of-type a {
+    font-size: 80%;
+    font-weight: bold;
+    color: #000;
+}
+
+.product-bar-list a {
+    font-size: 70%;
+    font-weight: 500;
+    color: #555555;
+}
+
+.product-bar-list a:hover , .product-desc:hover {
+    color: #e67e22;
+    transition: color .2s;
+}
+
 .product-photo {
-    height: 8em;
+    height: 10em;
     display: block;
     margin: .5em auto;
 }
@@ -547,14 +572,13 @@ h3 {
 
 .product-best {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto;
-    border: 1px solid #232F3E;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     background-color: #fff;
 }
 
 .product-view {
-    border: 1px solid #767676;
+    border: .5px solid #cfcfcf;
     padding: 4%;
 }
 
