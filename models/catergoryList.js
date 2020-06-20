@@ -33,4 +33,5 @@ const categoryList = {
 }
 
 categoryList.initDB();
+
 module.exports = categoryList;

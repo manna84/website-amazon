@@ -500,6 +500,7 @@ h3 {
     grid-template-rows: auto auto;
     background-color: #fff;
     margin-bottom: 4em;
+    padding-bottom:1% ;
 }
 
 
@@ -518,6 +519,6 @@ h3 {
 }
 
 .goods-list img {
-    height: 15em;
+    height: 10em;
 }
 

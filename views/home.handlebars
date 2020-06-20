@@ -13,30 +13,6 @@
         </ul>
     </article>
     {{/each}}
-
-    {{!-- <article>
-        <ul>
-            <li><a href="">Renewed Laptops</a></li>
-            <li><a href=""><img src="./img/laptop.jpg" alt="laptop image"></a></li>
-            <li><a href="">See More</a></li>
-        </ul>
-    </article>
-
-    <article>
-        <ul>
-            <li><a href="">Renewed Laptops</a></li>
-            <li><a href=""><img src="./img/laptop.jpg" alt="laptop image"></a></li>
-            <li><a href="">See More</a></li>
-        </ul>
-    </article>
-
-    <article>
-        <ul>
-            <li><a href="">Renewed Laptops</a></li>
-            <li><a href=""><img src="./img/laptop.jpg" alt="laptop image"></a></li>
-            <li><a href="">See More</a></li>
-        </ul>
-    </article> --}}
 </section>
 
 <section class="seller-grid-box row">
@@ -46,14 +22,12 @@
             <li><a href="">See More</a></li>
         </ul>
     </article>
-   
+    
    <article class="goods-list">
        <ul>
-           <li><a href=""><img src="./img/watch.png"></a></li>
-           <li><a href=""><img src="./img/watch.png"></a></li>
-           <li><a href=""><img src="./img/watch.png"></a></li>
-           <li><a href=""><img src="./img/watch.png"></a></li>
-           <li><a href=""><img src="./img/watch.png"></a></li>
+           {{#each bestSellerItem}}
+           <li><a href=""><img src="./img/{{this.imgPath}}"></a></li>
+           {{/each}}
        </ul>
    </article>
 
