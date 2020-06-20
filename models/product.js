@@ -3,15 +3,15 @@ const product = {
 
     initDB()
     {
-        // this.fakedb.push({
-        //     description : "Nikon COOLPIX B500 Digital Camera, Black",
-        //     price : "249",
-        //     imgPath : "camera.png",
-        //     ratingPath : "rating-4.5.png",
-        //     reviews : 12341,
-        //     featured: false
+        this.fakedb.push({
+            description : "Nikon COOLPIX B500 Digital Camera, Black",
+            price : "249",
+            imgPath : "camera.png",
+            ratingPath : "rating-4.5.png",
+            reviews : 12341,
+            featured: false
             
-        // })
+        })
 
         this.fakedb.push({
             description : "Echo Plus (2nd gen) – Premium sound with built-in smart home hub - Charcoal",
@@ -23,15 +23,15 @@ const product = {
             
         })
 
-        // this.fakedb.push({
-        //     description : "Fitbit Versa 2 Health & Fitness Smartwatch with Heart Rate, Music, Alexa Built-in, Sleep & Swim Tracking-Stone/Mist Grey",
-        //     price : "199",
-        //     imgPath : "watch.png",
-        //     ratingPath : "rating-4.png",
-        //     reviews : 65786,
-        //     featured: false
+        this.fakedb.push({
+            description : "Fitbit Versa 2 Health & Fitness Smartwatch with Heart Rate, Music, Alexa Built-in, Sleep & Swim Tracking-Stone/Mist Grey",
+            price : "199",
+            imgPath : "watch.png",
+            ratingPath : "rating-4.png",
+            reviews : 65786,
+            featured: false
             
-        // })
+        })
 
         this.fakedb.push({
             description : "Apple iPhone X, GSM Unlocked 5.8in, 64 GB - Space Gray",
@@ -91,7 +91,7 @@ const product = {
 
     getFeaturedProducts()
     {
-        featureProductDB : [];
+        featureProductDB = [];
 
         for(let i = 0; i < this.fakedb.length; i++) {
             this.fakedb.forEach((value) => {
