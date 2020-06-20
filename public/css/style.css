@@ -154,3 +154,37 @@ header {
 /*-----------Footer-----------*/
 /*--------------------------------------*/
 
+footer{
+    background-color: #232F3E;
+}
+
+.footer-box {
+    max-width: 1366px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 0;
+}
+
+.first-footer a {
+    color: #fff;
+    font-size: 70%;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px solid #fff;
+}
+
+.first-footer a:hover {
+    border-bottom: 1px solid #fff;
+    transition: border-bottom .2s;
+}
+
+.first-footer ul::first-line {
+    font-weight: bold;
+    font-size: 120%;
+}
+
+.first-footer ul li {
+    margin-top: 5px;
+}
+
+
