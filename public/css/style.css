@@ -41,6 +41,13 @@ p {
     font-weight: 500;
 }
 
+.row {
+    width: 1366px;
+}
+
+section {
+    margin: 0 auto;
+}
 
 /*--------------------------------------*/
 /*-----------Header-----------*/
@@ -181,7 +188,6 @@ footer section:first-of-type {
 /*-----------First Footer-----------*/
 
 .footer-box {
-    max-width: 1366px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -297,7 +303,6 @@ form .main-logo {
 .login-info,.signin-info {
     border: 1px solid #e7e7e7;
     width: 25%;
-    margin: 0 auto;
     padding: 2%;
 }
 label {
@@ -435,3 +440,10 @@ h3 {
     margin: 3em auto;
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+/*-----------Home Page-----------*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.banner img {
+    width: 100%;
+}
