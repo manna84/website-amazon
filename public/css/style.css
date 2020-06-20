@@ -522,3 +522,66 @@ h3 {
     height: 10em;
 }
 
+/*---------------------------------------------------------------------------------------------------*/
+/*-----------Product Page-----------*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.product-box {
+    display: flex;
+    margin: 5em auto;
+}
+
+.product-photo {
+    height: 8em;
+    display: block;
+    margin: .5em auto;
+}
+
+.rating {
+    height: 1em;
+}
+
+.prime-logo {
+    height: 1.5em;
+}
+
+.product-best {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    border: 1px solid #232F3E;
+    background-color: #fff;
+}
+
+.product-view {
+    border: 1px solid #767676;
+    padding: 4%;
+}
+
+.product-desc {
+    font-weight: bold;
+    color:   #0066C0;
+
+}
+
+.rating-box {
+    display: flex;
+    margin: .5em 0;
+}
+
+.rating-box li:last-of-type {
+    margin: auto 0 auto .5em;
+    font-weight: 400;
+    font-size: 70%;
+    color: #555;
+}
+
+.product-price {
+    display: flex;
+}
+
+.product-price li:first-child a {
+    color: red;
+    font-weight: bold;
+    font-size: 90%;
+}
