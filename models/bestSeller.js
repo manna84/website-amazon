@@ -28,7 +28,6 @@ const bestSeller = {
         return this.bestSellerDB;
     },
 
-   
 }
 
 bestSeller.initDB();
