@@ -4,7 +4,17 @@
 </section>
 
 <section class="category-grid-box row">
+    {{#each category}}
     <article>
+        <ul>
+            <li><a href="">{{this.description}}</a></li>
+            <li><a href=""><img src="./img/{{this.imgPath}}" alt="{{this.imgPath}} image"></a></li>
+            <li><a href="">See More</a></li>
+        </ul>
+    </article>
+    {{/each}}
+
+    {{!-- <article>
         <ul>
             <li><a href="">Renewed Laptops</a></li>
             <li><a href=""><img src="./img/laptop.jpg" alt="laptop image"></a></li>
@@ -26,15 +36,7 @@
             <li><a href=""><img src="./img/laptop.jpg" alt="laptop image"></a></li>
             <li><a href="">See More</a></li>
         </ul>
-    </article>
-
-    <article>
-        <ul>
-            <li><a href="">Renewed Laptops</a></li>
-            <li><a href=""><img src="./img/laptop.jpg" alt="laptop image"></a></li>
-            <li><a href="">See More</a></li>
-        </ul>
-    </article>
+    </article> --}}
 </section>
 
 <section class="seller-grid-box row">
