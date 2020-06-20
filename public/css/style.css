@@ -197,17 +197,70 @@ footer section:first-of-type {
 
 /*-----------Second Footer-----------*/
 
-.second-footer {
-    width: 10%;
+.second-footer ul:first-of-type {
+    display: flex;
 }
+
 
 #country {
     width: 8em;
-    padding: 0 1em;
+    padding: .5em;
+    margin-left: 1em;
     border-radius: 10px;
     color: #fff;
     background-color:#232F3E;
     border: 2px solid #fff;
 }
 
+.social-list {
+    display: flex;
+}
 
+.social-list img {
+    height: 50px;
+    margin-right: 2em;
+}
+
+.social-list li:last-of-type img {
+    margin-right: 0;
+}
+
+.social-list li:first-of-type {
+    color: #fff;
+    margin: auto 2em;
+    font-weight: bold;
+}
+
+/*-----------Third Footer-----------*/
+
+.third-footer {
+    background-color: #131A22;
+    padding: 1%;
+    font-weight: bold;
+}
+
+.third-footer ul {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.third-footer ul a {
+    color: #fff;
+    font-size: 90%;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.third-footer ul a:hover {
+    border-bottom: 1px solid #fff;
+    transition: border-bottom .2s;
+}
+
+.third-footer p {
+    margin: 20px 0;
+    text-align: center;
+    color: #555;
+    font-size: 80%;
+}
