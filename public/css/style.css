@@ -64,32 +64,23 @@ button:hover {
 
 header {
     background-color: #131921;
-    height: 8vh;
-    display: flex;
-    justify-content: space-between;
+    height: 12vh;
 }
 
-.box-logo {
+.main-header {
     display: flex;
     justify-content: space-between;
-    margin: auto 2em;
+    padding: 2%;
+}
+
+.box-logo, .main-nav ul {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 0;
 }
 
 .main-logo {
     height: 2.5em;
-    width: auto;
-}
-
-/*-----------Main Nav-----------*/
-
-.main-nav {
-    margin: auto 0;
-}
-
-.main-nav ul {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 1em;
 }
 
 .main-nav a {
@@ -108,8 +99,6 @@ header {
     padding: 8%;
     border-radius: 200px;
 }
-
-
 
 .main-nav button a {
     color: #000;
