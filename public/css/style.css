@@ -51,6 +51,7 @@ section {
 
 button {
     opacity: .8;
+    cursor: pointer;
 }
 
 button:hover {
@@ -97,7 +98,7 @@ header {
     background-color: #FEBD69;
     width: 9em;
     padding: 8%;
-    border-radius: 200px;
+    border-radius: 12.5em;
 }
 
 .main-nav button a {
@@ -110,14 +111,14 @@ header {
 
 .btn a {
     font-weight: bold;
-    letter-spacing: 2px;
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
+    letter-spacing: .125em;
+    /* padding-bottom: .25em; */
+    border-bottom: .125em solid transparent;
 }
 
 .btn a:hover {
     color: #FEBD69;
-    border-bottom: 2px solid #FEBD69;
+    border-bottom: .125em solid #FEBD69;
     transition: color .2s, border-bottom .2s;
 }
 
@@ -140,25 +141,25 @@ header {
 }
 
 .search-box img {
-    height: 25px;
-    margin-left: 0;
+    height: 1.563em;
+    /* margin-left: 0; */
 }
 
 .bar-search {
     width: 40em;
     padding: 2%;
-    border: 4px solid #FEBD69;
+    border: .250em solid #FEBD69;
     border-right: none;
-    border-radius: 10px 0 0 10px;
+    border-radius: 0.625em 0 0 0.625em;
 }
 
 .search-box button {
     width: 4em;
     background-color: #FEBD69;
-    border: 4px solid #FEBD69;
+    border: .250em solid #FEBD69;
     border-left: none;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
+    border-radius: 0 0.625em 0.625em 0;
+    /* cursor: pointer; */
 }
 
 
@@ -196,13 +197,19 @@ footer section:first-of-type {
     transition: border-bottom .2s;
 }
 
-.first-footer ul::first-line {
+/* .first-footer ul::first-line {
     font-weight: bold;
     font-size: 120%;
+} */
+
+h4 {
+    font-weight: bold;
+    font-size: 100%;
+    color: #fff;
 }
 
 .first-footer ul li {
-    margin-top: 5px;
+    margin-top: 0.313em;
 }
 
 
