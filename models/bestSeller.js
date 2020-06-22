@@ -1,7 +1,9 @@
 const bestSeller = {
+
     bestSellerDB : [],
     
     initDB() {
+
         this.bestSellerDB.push({
             imgPath: "watch.png"
         })
@@ -25,7 +27,9 @@ const bestSeller = {
     },
     
     getAllbestSeller() {
+
         return this.bestSellerDB;
+        
     },
 
 }

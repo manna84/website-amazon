@@ -1,4 +1,5 @@
 const product = {
+    
     fakedb : [],
 
     initDB()
@@ -94,12 +95,14 @@ const product = {
         featureProductDB = [];
 
         if(this.fakedb.length > 0) {
+
             this.fakedb.forEach((value) => {
+
                 if(value.featured === true) {
+
                     featureProductDB.push(value);
                 }
             })
-               
         }
         return featureProductDB;
     }

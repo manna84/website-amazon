@@ -115,7 +115,6 @@ header {
 .btn a {
     font-weight: bold;
     letter-spacing: .125em;
-    /* padding-bottom: .25em; */
     border-bottom: .125em solid transparent;
 }
 
@@ -145,7 +144,6 @@ header {
 
 .search-box img {
     height: 1.5em;
-    /* margin-left: 0; */
 }
 
 .bar-search {
@@ -164,7 +162,6 @@ header {
     border: .250em solid #FEBD69;
     border-left: none;
     border-radius: 0 0.625em 0.625em 0;
-    /* cursor: pointer; */
 }
 
 
@@ -201,11 +198,6 @@ footer section:first-of-type {
     border-bottom: 0.063em solid #fff;
     transition: border-bottom .2s;
 }
-
-/* .first-footer ul::first-line {
-    font-weight: bold;
-    font-size: 120%;
-} */
 
 h4 {
     font-weight: bold;
@@ -346,74 +338,9 @@ input[type=password],input[type=email],.signin-info input[type=text] {
     font-weight: 400;
 }
 
-/*reffered from amazon website*/
-
-.line {
-    text-align: center;
-    position: relative;
-    top: 0.125em;
-    padding-top: 0.063em;
-    margin-bottom: 14px;
-    line-height: 0;
-}
-
-.line:after {
-    display: block;
-    content: "";
-    background-color: transparent;
-    height: 0.063em;
-    border-top: 0.063em solid #e7e7e7;
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-    width: 25%;
-}
-
-.line {
-    text-align: center;
-    position: relative;
-    top: 0.125em;
-    padding-top: 0.063em;
-    margin-bottom: 14px;
-    line-height: 0;
-    display: block;
-    width: 25%;
-    margin: 0 auto;
-}
-
-.line:after {
-    content: "";
-    width: 100%;
-    background-color: transparent;
-    display: block;
-    height: 0.063em;
-    border-top: 0.063em solid #e7e7e7;
-    position: absolute;
-    top: 50%;
-    margin-top: -0.063em;
-    z-index: 1;
-}
-
-h3 {
-    line-height: 1;
-    font-size: 0.750em;
-    color: #767676;
-    font-weight: 400;
-    z-index: 2;
-    position: relative;
-    display: inline-block;
-    background-color: #fff;
-    padding: 0 0.500em 0 0.438em;
-
-    margin-block-start: 1.67em;
-    margin-block-end: 1.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
 .create-btn {
     display: block;
-    margin: 0 auto 5em auto;
+    margin: 5em auto;
     width: 25%;
     padding: .5% 0; background-color: #FEBD69;
     border: 0.031em solid #767676;
@@ -589,7 +516,7 @@ h3 {
 
 .product-desc {
     font-weight: bold;
-    color:   #0066C0;
+    color:#0066C0;
 
 }
 

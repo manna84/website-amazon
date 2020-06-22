@@ -1,7 +1,9 @@
 const categoryList = {
+
     categoryListDB : [],
     
     initDB() {
+
         this.categoryListDB.push({
             description: "Renewed Laptops",
             imgPath: "laptop.jpg"
@@ -21,10 +23,13 @@ const categoryList = {
             description: "Fresh Books",
             imgPath: "books.jpg"
         })
+        
     },
     
     getAllcategoryLists() {
+
         return this.categoryListDB;
+
     },
 
     getFeaturedcategoryLists() {
