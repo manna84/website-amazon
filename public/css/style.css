@@ -224,10 +224,10 @@ h4 {
     width: 8em;
     padding: .5em;
     margin-left: 1em;
-    border-radius: 10px;
+    border-radius: 0.625em;
     color: #fff;
     background-color:#232F3E;
-    border: 2px solid #fff;
+    border: .125em solid #fff;
 }
 
 .social-list {
@@ -235,7 +235,7 @@ h4 {
 }
 
 .social-list img {
-    height: 50px;
+    height: 2em;
     margin-right: 2em;
 }
 
@@ -267,19 +267,19 @@ h4 {
 .third-footer ul a {
     color: #fff;
     font-size: 90%;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
+    border-bottom: 0.063em solid transparent;
+    padding-bottom: .125em;
 }
 
 .third-footer ul a:hover {
-    border-bottom: 1px solid #fff;
+    border-bottom: 0.063em solid #fff;
     transition: border-bottom .2s;
 }
 
 .third-footer p {
-    margin: 20px 0;
+    margin-top: 1.250em;
     text-align: center;
-    color: #555;
+    color: rgb(141, 141, 141);
 }
 
 
