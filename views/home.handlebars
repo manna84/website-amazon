@@ -4,6 +4,7 @@
 </section>
 
 <section class="category-grid-box row">
+
     {{#each category}}
     <article>
         <ul>
@@ -16,20 +17,23 @@
 </section>
 
 <section class="seller-grid-box row">
+
     <article class="seller-head">
         <ul>
             <li><a href="/productListing">Best Sellers</a></li>
             <li><a href="/productListing">See More</a></li>
         </ul>
+
     </article>
     
    <article class="goods-list">
+
        <ul>
            {{#each bestSellerItem}}
            <li><a href="/productListing"><img src="./img/{{this.imgPath}}"></a></li>
            {{/each}}
        </ul>
-   </article>
 
+   </article>
 
 </section>

@@ -101,6 +101,7 @@ header {
     width: 8em;
     height: 3em;
     padding: 8%;
+    border: none;
     border-radius: 12.5em;
 }
 
@@ -455,6 +456,10 @@ input[type=password],input[type=email],.signin-info input[type=text] {
 
 .goods-list img {
     height: 10em;
+}
+
+.goods-list img:hover {
+    transform: scale();
 }
 
 /*---------------------------------------------------------------------------------------------------*/
