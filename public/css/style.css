@@ -239,13 +239,17 @@ h4 {
     margin-right: 2em;
 }
 
+.social-list li {
+    margin: auto 0;
+}
+
 .social-list li:last-of-type img {
     margin-right: 0;
 }
 
 .social-list li:first-of-type {
     color: #fff;
-    margin: auto 2em;
+    margin-right: 2em;
     font-weight: bold;
 }
 
