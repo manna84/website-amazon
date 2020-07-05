@@ -1,5 +1,6 @@
 const express = require("express");
 const exphbs = require('express-handlebars');
+const bodyParser = require('body-parser')
 
 const product = require("./models/product")
 const categoryList = require("./models/catergoryList")
@@ -11,6 +12,7 @@ app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/",(req, res)=>{
 
@@ -40,11 +42,23 @@ app.get("/login",(req, res)=>{
 
 });
 
+app.post("/login",(req, res)=>{
+    // console.log(`asdasd : ${req.body.password}`)
+    // console.log(`asdaasdsd : ${req.body.email}`)
+});
+
 app.get("/signup",(req,res)=>{
     res.render("signup", {
         title: "SignUp Page"
     })
-})
+});
+
+app.post("/signup",(req, res)=>{
+    // console.log(`asdasd : ${req.body.password}`)
+    // console.log(`asdaasdsd : ${req.body.email}`)
+    // console.log(`asdaasdsd : ${req.body.name}`)
+    // console.log(`asdaasdsd : ${req.body.confirmPassword}`)
+});
 
 
 
