@@ -4,6 +4,9 @@
     <section class="login-info">
 
         <h2>Sign In</h2>
+        {{#each errorMessages}}
+        <div>{{this}}</div>
+        {{/each}}
 
         <label for = email>Email</label><br>
         <input type="email" id = email name="email" placeholder="Please enter your email"<br>

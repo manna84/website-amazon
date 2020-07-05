@@ -43,6 +43,27 @@ app.get("/login",(req, res)=>{
 });
 
 app.post("/login",(req, res)=>{
+
+    const errors = [];
+
+    if (req.body.email == "") {
+        errors.push("Please enter Email")
+    }
+
+    if (req.body.password == ""){
+        errors.push("Please enter a Password")
+    }
+
+    if(errors.length>0) {
+        res.render("login", {
+            title : "Login Page",
+            errorMessages : errors
+        })
+    }
+
+    else {
+        res.redirect("/");
+    }
     // console.log(`asdasd : ${req.body.password}`)
     // console.log(`asdaasdsd : ${req.body.email}`)
 });
