@@ -61,7 +61,7 @@ app.post("/login",(req, res)=>{
     const passValid = (/^(?=.*\d.*)(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*[@#%\*\-+=~\[\]{}<>\?].*)/)
 
     if (!req.body.password.match(passValid)) {
-        errors.push("abc")
+        errors.push("Entered password must contain at least a special character, a numeric digit, an uppercase and a lowercase letter")
     }
 
     if(errors.length>0) {
