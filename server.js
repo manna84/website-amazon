@@ -58,7 +58,7 @@ app.post("/login",(req, res)=>{
         errors.push("Password must contain atleast 6 characters")
     }
 
-    const passValid = (/^(?=.*\d.*)(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*[@#%\*\-+=~\[\]{}<>\?].*)/)
+    const passValid = (/^(?=.*\d.*)(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*[@#%\*\-+=~\[\]{}<>\?])$/)
 
     if (!req.body.password.match(passValid)) {
         errors.push("Entered password must contain at least a special character, a numeric digit, an uppercase and a lowercase letter")
