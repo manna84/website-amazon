@@ -47,11 +47,21 @@ app.post("/login",(req, res)=>{
     const errors = [];
 
     if (req.body.email == "") {
-        errors.push("Please enter Email")
+        errors.push("Please enter an Email...!!!")
     }
 
     if (req.body.password == ""){
-        errors.push("Please enter a Password")
+        errors.push("Please enter a Password...!!!")
+    }
+
+    if (req.body.password.length >0 && req.body.password.length < 6) {
+        errors.push("Password must contain atleast 6 characters")
+    }
+
+    const passValid = (/^(?=.*\d.*)(?=.*[a-z].*)(?=.*[A-Z].*)(?=.*[@#%\*\-+=~\[\]{}<>\?].*)/)
+
+    if (!req.body.password.match(passValid)) {
+        errors.push("abc")
     }
 
     if(errors.length>0) {

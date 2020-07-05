@@ -348,6 +348,17 @@ input[type=password],input[type=email],.signin-info input[type=text] {
     border-radius: 0.125em;
 }
 
+.errors {
+    background-color: #ff6e75;
+    padding: 1%;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    width: 50%;
+    margin: .5em auto;
+    border-radius: .125em;
+}
+
 /*---------------------------------------------------------------------------------------------------*/
 /*-----------Signup Form-----------*/
 /*---------------------------------------------------------------------------------------------------*/
