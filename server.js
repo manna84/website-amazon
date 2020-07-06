@@ -17,7 +17,7 @@ const productController = require("./controllers/product");
 app.use("/", generalController);
 app.use("/productListing", productController);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, ()=>{
     console.log("Server is running");
