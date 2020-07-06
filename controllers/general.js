@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router();
+const categoryList = require("../models/catergoryList")
+const bestSeller = require("../models/bestSeller")
 
 router.get("/",(req, res)=>{
 

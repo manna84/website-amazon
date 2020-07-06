@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router();
+const product = require("../models/product")
 
-router.get("/productListing",(req, res)=>{
+router.get("/",(req, res)=>{
 
     res.render("productListing", {
         title : "Product Listing Page",
