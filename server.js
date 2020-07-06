@@ -74,8 +74,7 @@ app.post("/login",(req, res)=>{
     else {
         res.redirect("/");
     }
-    // console.log(`asdasd : ${req.body.password}`)
-    // console.log(`asdaasdsd : ${req.body.email}`)
+ 
 });
 
 app.get("/signup",(req,res)=>{
@@ -136,10 +135,7 @@ app.post("/signup",(req, res)=>{
     else {
         res.redirect("/");
     }
-    // console.log(`asdasd : ${req.body.password}`)
-    // console.log(`asdaasdsd : ${req.body.email}`)
-    // console.log(`asdaasdsd : ${req.body.name}`)
-    // console.log(`asdaasdsd : ${req.body.confirmPassword}`)
+
 });
 
 
