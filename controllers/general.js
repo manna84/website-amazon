@@ -57,6 +57,7 @@ router.post("/login",(req, res)=>{
 });
 
 router.get("/signup",(req,res)=>{
+
     res.render("signup", {
         title: "SignUp Page"
     })
@@ -112,7 +113,28 @@ router.post("/signup",(req, res)=>{
     }
 
     else {
-        res.redirect("/");
+        // res.redirect("/");
+        const {name, email} = req.body;
+        // console.log(req.body)
+
+        const sgMail = require('@sendgrid/mail');
+        sgMail.setApiKey("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");
+        const msg = {
+            to: 'mannasingh84@gmail.com',
+            from: `${email}`,
+            subject: 'Welcome to the Amazon family',
+            text: `Hi ${name}`,
+            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    };
+            sgMail.send(msg)
+
+            .then(() => {
+                res.redirect("/");
+            })
+            .catch(err => {
+                console.log(`Error ${err}`);
+            })
+
     }
 
 });
