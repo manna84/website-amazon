@@ -507,7 +507,7 @@ input[type=password],input[type=email],.signin-info input[type=text] {
 }
 
 .product-photo {
-    height: 10em;
+    height: 9em;
     display: block;
     margin: .5em auto;
 }
