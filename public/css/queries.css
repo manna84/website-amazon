@@ -7,6 +7,17 @@
     .bar-search {
         width: 30em;
     }
+
+    /*-----------Login Form-----------*/
+
+    .create-btn {
+        padding: 1%;
+    }
+
+    .errors {
+        width: 80%;
+    }
+
 }
 
 /*--------------------------------------------*/
@@ -64,6 +75,17 @@
 
     .third-footer ul {
         width: 70%;
+    }
+
+    /*-----------Login Form-----------*/
+
+    .create-btn {
+        width: 40%;
+    }
+
+    .login-info,.signin-info {
+        width: 60%;
+        padding: 4%;
     }
     
 }
@@ -134,6 +156,14 @@
 
     .bar-search {
         width: 20em;
+    }
+
+    input[type=password],input[type=email],.signin-info input[type=text] {
+        padding: 3%;
+    }
+
+    .signin-info .create-btn {
+        padding: 3%;
     }
 
 }
@@ -209,6 +239,18 @@
         font-size: 70%;
         font-weight: 300;
     }
+
+     /*-----------Login Form-----------*/
+
+     .create-btn {
+        width: 50%;
+        padding: 2%;
+    }
+
+    .login-info,.signin-info {
+        width: 80%;
+        padding: 10% 6%;
+    }
 }
 
 /*--------------------------------------------*/
@@ -244,7 +286,7 @@
    }
 
 
-/*-----------Home Page-----------*/
+    /*-----------Home Page-----------*/
 
     .category-grid-box img {
         height: 30em;
@@ -256,7 +298,7 @@
         padding: 1em 0;
     }
 
-/*-----------First Footer-----------*/
+    /*-----------First Footer-----------*/
 
     .first-footer {
         padding: 2%;
@@ -270,7 +312,7 @@
         font-size: 90%;
     }
 
-/*-----------Second Footer-----------*/
+    /*-----------Second Footer-----------*/
 
     .second-footer ul:first-of-type {
         flex-direction: column;
@@ -287,15 +329,33 @@
         margin: 1em auto;
     }
 
+    /*-----------Login Form-----------*/
+
+    h2 {
+        font-size: 180%;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    .create-btn {
+        width: 60%;
+        padding: 3%;
+        font-size: .8em;
+    }
+
+    .errors {
+        width: 100%;
+    }
+
 }
 
 /*--------------------------------------------*/
-/* For screens that are 1024px or less */
+/* For screens that are 360px or less */
 /*--------------------------------------------*/
 
 @media only screen and (max-width: 360px) {
    
-/*----------HEADER----------*/
+    /*----------HEADER----------*/
 
     .main-header {
         padding: 3%;
@@ -318,7 +378,7 @@
        height: 2.5em; 
    }
 
-/*-----------Home Page-----------*/
+    /*-----------Home Page-----------*/
 
     .category-grid-box li {
         margin: .5em .5em;
@@ -332,7 +392,7 @@
         border-bottom: 2px solid rgb(209, 208, 208);
     }
 
-/*-----------Best Seller Goods-----------*/
+    /*-----------Best Seller Goods-----------*/
 
     .goods-list ul li {
         margin-top: 1.5em;
@@ -343,7 +403,7 @@
         height: 10em;
     }
 
-/*-----------First Footer-----------*/
+    /*-----------First Footer-----------*/
 
     .first-footer ul li {
         text-align: left;
@@ -353,7 +413,16 @@
         font-size: 70%;
     }
 
+    /*-----------Login Form-----------*/
+
+    .login-info,.signin-info {
+        width: 90%;
+        padding: 8% 2%;
     }
 
+    .create-btn {
+        width: 90%;
+    }
 
+}
 

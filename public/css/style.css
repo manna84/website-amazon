@@ -344,7 +344,8 @@ input[type=password],input[type=email],.signin-info input[type=text] {
     display: block;
     margin: 5em auto;
     width: 25%;
-    padding: .5% 0; background-color: #FEBD69;
+    padding: .5% 0; 
+    background-color: #FEBD69;
     border: 0.031em solid #767676;
     border-radius: 0.125em;
 }
