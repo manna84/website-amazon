@@ -111,7 +111,6 @@ header {
     font-size: 130%;
 }
 
-
 /*-----------Links-----------*/
 
 .btn a {
@@ -135,7 +134,6 @@ header {
 .cart-shopping li {
     margin:auto .125em;
 }
-
 
 /*-----------Search Bar-----------*/
 
@@ -166,7 +164,6 @@ header {
     border-radius: 0 0.625em 0.625em 0;
 }
 
-
 /*--------------------------------------*/
 /*-----------Footer-----------*/
 /*--------------------------------------*/
@@ -178,7 +175,6 @@ footer{
 footer section:first-of-type {
     border-bottom: 0.031em solid #fff;
  }
-
 
 /*-----------First Footer-----------*/
 
@@ -211,13 +207,11 @@ h4 {
     margin-top: 0.313em;
 }
 
-
 /*-----------Second Footer-----------*/
 
 .second-footer ul:first-of-type {
     display: flex;
 }
-
 
 #country {
     width: 8em;
@@ -285,11 +279,9 @@ h4 {
     color: rgb(141, 141, 141);
 }
 
-
 /*---------------------------------------------------------------------------------------------------*/
 /*-----------Login Form-----------*/
 /*---------------------------------------------------------------------------------------------------*/
-
 
 form img {
     height: 1.250em;
@@ -307,6 +299,7 @@ form .main-logo {
     padding: 2%;
     background-color: #fff;
 }
+
 label {
     font-weight: bold;
 }
@@ -451,7 +444,6 @@ input[type=password],input[type=email],.signin-info input[type=text] {
     margin-bottom: 4em;
     padding-bottom:1% ;
 }
-
 
 .seller-head ul {
     display: flex;
