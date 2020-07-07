@@ -104,7 +104,6 @@ router.post("/signup",(req, res)=>{
         errors.push("Passwords are not matching")
     }
     
-
     if(errors.length>0) {
         res.render("signup", {
             title: "SignUp Page",
@@ -124,7 +123,7 @@ router.post("/signup",(req, res)=>{
             from: `${email}`,
             subject: 'Welcome to the Amazon family',
             text: `Hi ${name}`,
-            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+            html: '<h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>',
     };
             sgMail.send(msg)
 
