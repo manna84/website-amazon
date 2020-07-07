@@ -24,7 +24,7 @@
     }
 
     .category-grid-box article {
-        margin: 0 2em 2em 0;
+        margin: 1em;
     }
 
     .category-grid-box li {
@@ -66,6 +66,55 @@
     }
     
 }
+
+@media only screen and (max-width: 900px) {
+    .btn a {
+        font-weight: 300;
+        font-size: 80%;
+    }
+
+    .bar-search {
+        width: 15em;
+    }
+
+    .seller-head ul {
+        margin-top: .5em;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .goods-list ul {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        justify-content: space-evenly;
+    }
+    
+    .goods-list ul li {
+        display: block;
+        text-align: center;
+        margin: 1.5em auto 1em auto;
+    }
+    
+    .goods-list img {
+        max-width: 100%;
+        height: 12em;
+    }
+}
+
+/*--------------------------------------*/
+    /*-----------Footer-----------*/
+    /*--------------------------------------*/
+
+    /*-----------First Footer-----------*/
+
+    .footer-box {
+        padding: 2% 2%;
+    }
+
+    h4 {
+        font-size: .8em;
+    }
 
 @media only screen and (max-width: 480px) {
 
@@ -137,25 +186,8 @@
 /*-----------Best Seller Goods-----------*/
 /*--------------------------------------------*/
 
-.seller-head ul {
-    margin-top: .5em;
-    flex-direction: column;
-    text-align: center;
-}
-
 .goods-list ul {
     flex-direction: column;
-}
-
-.goods-list ul li {
-    display: block;
-    text-align: center;
-    margin-top: 1.5em auto 0 auto;
-}
-
-.goods-list img {
-    max-width: 100%;
-    height: 14em;
 }
 
 /*--------------------------------------*/
