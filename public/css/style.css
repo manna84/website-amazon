@@ -551,3 +551,48 @@ input[type=password],input[type=email],.signin-info input[type=text] {
     font-weight: bold;
     font-size: 90%;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-----------Dashboard-----------*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.dashboard {
+    margin: 4em auto;
+    padding: 4em;
+    background-color: #f0f0f0;
+    border-radius: .5em;
+}
+
+.dashboard h1 {
+    font-size: 200%;
+    text-transform: capitalize;
+    text-align: center;
+    color: #e67e22;
+}
+
+.dashboard p {
+    margin: 3em 0;
+    font-size: 1em;
+}
+
+.family-img {
+    max-width: 100%;
+}
+
+.social-icon img {
+    height: 2em;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.dashboard h3 {
+    text-transform: capitalize;
+    text-align: center;
+    margin: 1em auto;
+}

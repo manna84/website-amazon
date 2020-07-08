@@ -13,6 +13,14 @@ router.get("/",(req, res)=>{
 
 });
 
+router.get("/dashboard",(req, res)=>{
+
+    res.render("dashboard", {
+        title : "Welcome Page"
+    })
+
+});
+
 router.get("/login",(req, res)=>{
 
     res.render("login", {
@@ -141,7 +149,7 @@ router.post("/signup",(req, res)=>{
             sgMail.send(msg)
 
             .then(() => {
-                res.redirect("/");
+                res.redirect("/dashboard");
             })
             .catch(err => {
                 console.log(`Error ${err}`);
