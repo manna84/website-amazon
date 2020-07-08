@@ -1,5 +1,5 @@
 /*--------------------------------------------*/
-/* For screens that are 1200px or less */
+/* For screens that are 1280px or less */
 /*--------------------------------------------*/
 
 @media only screen and (max-width: 1280px) {
@@ -7,6 +7,7 @@
     .bar-search {
         width: 30em;
     }
+
 
     /*-----------Login Form-----------*/
 
@@ -18,7 +19,7 @@
         width: 80%;
     }
 
-    /*-----------Product Page-----------*/
+    /*-----------Dashboard Page-----------*/
 
     .product-box {
         margin: 5em 1em;
@@ -104,6 +105,11 @@
          height: 8em;
      }
 
+     /*-----------Dashboard Page-----------*/
+
+     .dashboard {
+         margin: 4em 2em;
+     }
 }
 
 /*--------------------------------------------*/
@@ -282,6 +288,25 @@
 
      .product-photo {
         height: 8em;
+    }
+
+    /*-----------Dashboard-----------*/
+
+    .dashboard {
+        margin: 2em 1em;
+        padding: 1em;
+    }
+
+    .dashboard h1 {
+        font-size: 150%;
+    }
+
+    .dashboard p {
+        font-size: .8em;
+    }
+
+    .social-icon {
+        width: 100%;
     }
     
 }
@@ -465,6 +490,20 @@
 
     .create-btn {
         width: 90%;
+    }
+
+    /*-----------Dashboard page-----------*/
+
+    .dashboard h1 {
+        font-size: 120%;
+    }
+
+    .family-img {
+        height: 5em;
+    }
+
+    .dashboard h3 {
+        font-size: 100%;
     }
 
 }
