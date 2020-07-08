@@ -92,6 +92,14 @@ router.post("/signup",(req, res)=>{
         errors.push("Name must contain only alphabets")
     }
 
+    if (req.body.lastName == "") {
+        errors.push("Please enter your Last name...!!!")
+    }
+
+    if (req.body.lastName.match(nameValid)) {
+        errors.push("Last name must contain only alphabets")
+    }
+
     if (req.body.email == "") {
         errors.push("Please enter an Email...!!!")
     }
@@ -120,6 +128,7 @@ router.post("/signup",(req, res)=>{
 
     let noRefreshSignup = {
         name : req.body.name,
+        lastName : req.body.lastName,
         email : req.body.email,
         password : req.body.password,
     }
@@ -134,7 +143,7 @@ router.post("/signup",(req, res)=>{
 
     else {
         // res.redirect("/");
-        const {name, email} = req.body;
+        const {name, email, lastName} = req.body;
         // console.log(req.body)
 
         const sgMail = require('@sendgrid/mail');
@@ -143,8 +152,7 @@ router.post("/signup",(req, res)=>{
             to: 'mannasingh84@gmail.com',
             from: `${email}`,
             subject: 'Welcome to the Amazon family',
-            text: `Hi ${name}`,
-            html: '<h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>',
+            html: `Hi ${name} ${lastName} <br><h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>`,
     };
             sgMail.send(msg)
 
