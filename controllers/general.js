@@ -43,17 +43,16 @@ router.post("/login",(req, res)=>{
         errors.push("Entered password must contain at least a special character, a numeric digit, an uppercase and a lowercase letter")
     }
 
-    let noRefresh = {
-        email1 : req.body.email,
-        password1 : req.body.password,
-        name1 : req.body.password
+    let noRefreshLogin = {
+        email : req.body.email,
+        password : req.body.password,
     }
 
     if(errors.length>0) {
         res.render("login", {
             title : "Login Page", 
             errorMessages : errors,
-            retainData : noRefresh
+            retainData : noRefreshLogin
         })
     }
 
@@ -111,13 +110,17 @@ router.post("/signup",(req, res)=>{
         errors.push("Passwords are not matching")
     }
 
-    
+    let noRefreshSignup = {
+        name : req.body.name,
+        email : req.body.email,
+        password : req.body.password,
+    }
     
     if(errors.length>0) {
         res.render("signup", {
             title: "SignUp Page",
             errorMessages : errors,
-           
+            retainData : noRefreshSignup
         })
     }
 
