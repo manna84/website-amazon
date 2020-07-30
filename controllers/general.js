@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const categoryList = require("../models/catergoryList")
 const bestSeller = require("../models/bestSeller")
+const signupModel = require("../models/signup")
 
 router.get("/",(req, res)=>{
 
@@ -143,7 +144,7 @@ router.post("/signup",(req, res)=>{
 
     else {
         // res.redirect("/");
-        const {name, email, lastName} = req.body;
+        const {name, email, lastName,password} = req.body;
         // console.log(req.body)
 
         const sgMail = require('@sendgrid/mail');
@@ -157,7 +158,21 @@ router.post("/signup",(req, res)=>{
             sgMail.send(msg)
 
             .then(() => {
-                res.redirect("/dashboard");
+
+                const newUser = {
+                    name:name,
+                    lastName:lastName,
+                    email:email,
+                    password:password
+                }
+
+                const signup = new signupModel(newUser);
+
+                signup.save()
+                .then(()=>{
+                    res.redirect("/dashboard");
+                })
+                .catch(err=>console.log(`Error happened when inserting in DB: ${err}`))
             })
             .catch(err => {
                 console.log(`Error ${err}`);
