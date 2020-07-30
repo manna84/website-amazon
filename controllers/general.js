@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router();
 const categoryList = require("../models/catergoryList")
 const bestSeller = require("../models/bestSeller")
-const signupModel = require("../models/signup")
+const signupModel = require("../models/signup");
+const bcrypt = require("bcryptjs");
 
 router.get("/",(req, res)=>{
 
@@ -19,6 +20,13 @@ router.get("/dashboard",(req, res)=>{
     res.render("dashboard", {
         title : "Welcome Page"
     })
+
+});
+
+router.get("/logout",(req, res)=>{
+
+    req.session.destroy();
+    res.redirect("/login")
 
 });
 
@@ -66,7 +74,42 @@ router.post("/login",(req, res)=>{
     }
 
     else {
-        res.redirect("/");
+
+        signupModel.findOne({email:req.body.email})
+        .then(user=>{
+
+            const errors=[]
+
+            if(user==null) {
+
+                errors.push("Sorry, your email and/or password is incorrect");
+                res.render("login",{
+                    errors
+                })
+
+            } 
+            
+            else {
+                bcrypt.compare(req.body.password, user.password)
+                .then(isMatched=>{
+                    if(isMatched) {
+                        req.session.userInfo = user;
+                        res.redirect("/dashboard")
+                    }
+
+                    else {
+                        errors.push("Sorry, your email and/or password is incorrect");
+                        res.render("login",{
+                            errors
+                    })
+                }
+
+                })
+                .catch((err)=>console.log(`Error : ${err}`));
+                    // res === true
+            }
+        })
+        .catch((err)=>console.log(`Wrong email: ${err}`))
     }
  
 });
