@@ -2,6 +2,7 @@ const express = require("express");
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 require('dotenv').config({path:"./config/keys.env"});
 
@@ -15,6 +16,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const generalController = require("./controllers/general");
 const productController = require("./controllers/product");
+
+app.use(session({
+    secret: `${process.env.SECRET_KEY}`,
+    resave: false,
+    saveUninitialized: true
+  }))
 
 app.use("/", generalController);
 app.use("/productListing", productController);
