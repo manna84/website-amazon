@@ -1,21 +1,27 @@
 <form action="/addProduct" method="POST">
     <img src="./img/amazon-logo-black.png" alt="amazon-logo" class="main-logo">
-    <section class="signin-info">
+    <section class="addProduct-info">
         <h2>Add Product</h2>
 
-        {{#each errorMessages}}
+        {{!-- {{#each errorMessages}}
         <div class="errors">{{this}}</div>
-        {{/each}}
+        {{/each}} --}}
 
         <label for = name>Product Name</label><br>
-        <input type="text" id = name name="name" placeholder="Please enter the product name" value="{{retainData.name}}"><br>
+        <input type="text" id = name name="name" placeholder="Please enter the product name"><br>
         <label for = lastName>Product Price</label><br>
-        <input type="text" id = lastName name="lastName" placeholder="Please enter your last name" value="{{retainData.lastName}}"><br>
+        <input type="text" id = lastName name="lastName" placeholder="Please enter your last name"><br>
         <label for = description>Product Description</label><br>
         <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
-        {{!-- <textarea type="text" id = description name="description" placeholder="Please enter product description" value="{{retainData.email}}"><br> --}}
-        <label for = category>Product Category</label><br>
-        <input type="text" id = category name="category" placeholder="Please enter product category" value="{{retainData.password}}">
+
+        <label for="category">Product Category</label>
+        <select name="category" id="category">
+        <option value="Camera,photo & video">Camera,photo & video</option>
+        <option value="Cell Phone & Accessories">Cell Phone & Accessories</option>
+        <option value="Headphones">Headphones</option>
+        <option value="Computers & Accessories">Computers & Accessories</option>
+        <option value="Portable Audio & Video">Portable Audio & Video</option>
+        </select><br>
         
         <label for="quantity">Product Quantity</label>
         <select name="quantity" id="quantity">
@@ -25,13 +31,22 @@
         <option value="4">4</option>
         </select><br><br>
 
-        <input type="radio" id="bestsellerYes" name="bestseller" value="yes">
-        <label for="yes">Yes</label><br>
-        <input type="radio" id="bestsellerNo" name="bestseller" value="no">
-        <label for="no">No</label><br>
+        {{!-- <div class="radio">
+            <input type="radio" id="bestsellerYes" name="bestseller" value="yes">
+            <label for="yes">Yes</label><br>
+            <input type="radio" id="bestsellerNo" name="bestseller" value="no">
+            <label for="no">No</label><br>
+        </div> --}}
+        <label for="bestseller">Add to Bestseller?</label>
+        <label class="radio-inline">
+            <input type="radio" name="bestseller" id="bestsellerYes" checked>Yes
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="bestseller" id="bestsellerNo">No
+        </label>
 
-        <p>Upload Image</p>
         <button type="submit" class="upload-img">Upload Image</button>
+        <button type="submit" class="addProduct-btn">Submit</button>
     
     </section>
     

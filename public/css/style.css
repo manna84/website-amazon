@@ -293,7 +293,7 @@ form .main-logo {
     height: 10em;
 }
 
-.login-info,.signin-info {
+.login-info,.signin-info,.addProduct-info {
     border: 0.063em solid #e7e7e7;
     width: 40%;
     padding: 2%;
@@ -304,7 +304,7 @@ label {
     font-weight: bold;
 }
 
-input[type=password],input[type=email],.signin-info input[type=text] {
+input[type=password],input[type=email],.signin-info input[type=text], .addProduct-info input[type=text]  {
     width: 100%;
     margin: .4em 0 .825em 0;
     padding: 1.5%;
@@ -596,3 +596,47 @@ input[type=password],input[type=email],.signin-info input[type=text] {
     text-align: center;
     margin: 1em auto;
 }
+
+/*---------------------------------------------------------------------------------------------------*/
+/*-----------Add Product Page-----------*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.addProduct-info {
+    margin-bottom: 5em;
+}
+
+textarea {
+    width: 100%;
+    margin-top: .5em;
+}
+
+select {
+    margin: 1em 0 0 1em;
+    padding: 1%;
+    font-size: 80%;
+}
+
+.radio-inline {
+    margin-left: 2em;
+}
+
+.addProduct-info button {
+    display: block;
+    margin-top: 1em;
+}
+
+.upload-img {
+    padding: 1% 2%;
+}
+
+.addProduct-btn {
+    width: 25%;
+    margin: 1em auto;
+    padding: 1.5% 3%;
+    background-color: #FEBD69;
+    border: 0.031em solid #767676;
+    border-radius: 0.125em;
+    font-size: 1em;
+}
+
+    
