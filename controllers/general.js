@@ -5,6 +5,7 @@ const bestSeller = require("../models/bestSeller")
 const signupModel = require("../models/signup");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth.js");
+const userDashboard = require("../middleware/authorization.js");
 
 router.get("/",(req, res)=>{
 
@@ -23,6 +24,8 @@ router.get("/dashboard",isAuthenticated,(req, res)=>{
     })
 
 });
+
+
 
 router.get("/logout",(req, res)=>{
 
@@ -101,7 +104,7 @@ router.post("/login",(req, res)=>{
                 .then(isMatched=>{
                     if(isMatched) {
                         req.session.userInfo = user;
-                        res.redirect("/dashboard")
+                        userDashboard(req,res);
                     }
 
                     else {
@@ -119,6 +122,14 @@ router.post("/login",(req, res)=>{
         .catch((err)=>console.log(`Wrong email: ${err}`))
     }
  
+});
+
+router.get("/admin-dashboard",isAuthenticated,(req, res)=>{
+
+    res.render("admin-dashboard", {
+        title : "Welcome Page"
+    })
+
 });
 
 router.get("/signup",(req,res)=>{

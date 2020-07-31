@@ -31,6 +31,12 @@ const signupSchema = new Schema({
     {
         type:Date,
         default:Date
+    },
+
+    type:
+    {
+        type:String,
+        default:"User"
     }
 
 });
