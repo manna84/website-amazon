@@ -17,13 +17,6 @@ router.get("/",(req, res)=>{
 
 });
 
-router.get("/addProduct",(req, res)=>{
-
-    res.render("addProduct", {
-        title : "Add Products"
-    })
-
-});
 
 router.get("/dashboard",isAuthenticated,(req, res)=>{
 

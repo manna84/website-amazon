@@ -3,14 +3,10 @@
     <section class="addProduct-info">
         <h2>Add Product</h2>
 
-        {{!-- {{#each errorMessages}}
-        <div class="errors">{{this}}</div>
-        {{/each}} --}}
-
         <label for = name>Product Name</label><br>
-        <input type="text" id = name name="name" placeholder="Please enter the product name"><br>
+        <input type="text" id = "name" name="name" placeholder="Please enter the product name"><br>
         <label for = lastName>Product Price</label><br>
-        <input type="text" id = lastName name="lastName" placeholder="Please enter your last name"><br>
+        <input type="text" id = "price" name="price" placeholder="Please enter Product Price"><br>
         <label for = description>Product Description</label><br>
         <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
 
@@ -31,12 +27,6 @@
         <option value="4">4</option>
         </select><br><br>
 
-        {{!-- <div class="radio">
-            <input type="radio" id="bestsellerYes" name="bestseller" value="yes">
-            <label for="yes">Yes</label><br>
-            <input type="radio" id="bestsellerNo" name="bestseller" value="no">
-            <label for="no">No</label><br>
-        </div> --}}
         <label for="bestseller">Add to Bestseller?</label>
         <label class="radio-inline">
             <input type="radio" name="bestseller" id="bestsellerYes" checked>Yes

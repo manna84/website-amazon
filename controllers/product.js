@@ -12,6 +12,14 @@ router.get("/",(req, res)=>{
 
 });
 
+router.get("/addProduct",(req, res)=>{
+
+    res.render("addProduct", {
+        title : "Add Products"
+    })
+
+});
+
 
 
 module.exports = router;
