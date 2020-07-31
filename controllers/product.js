@@ -90,7 +90,7 @@ router.post("/addProduct",(req, res)=>{
                     productimg: req.files.productimg.name
                 })
                 .then(()=>{
-                    res.redirect("/")
+                    res.redirect(`/admin-dashboard/${user._id}`)
                 })
                 
             })
