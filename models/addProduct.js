@@ -38,6 +38,11 @@ const addProductSchema = new Schema({
         required:true
     },
 
+    productimg:
+    {
+        type:String
+    },
+
     dateCreated:
     {
         type:Date,

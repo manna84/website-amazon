@@ -1,4 +1,4 @@
-<form action="/addProduct" method="POST">
+<form action="/addProduct" method="POST" encType="multipart/form-data">
     <img src="./img/amazon-logo-black.png" alt="amazon-logo" class="main-logo">
     <section class="addProduct-info">
         <h2>Add Product</h2>
@@ -37,13 +37,16 @@
 
         <label for="bestseller">Add to Bestseller?</label>
         <label class="radio-inline">
-            <input type="radio" name="bestseller" id="bestsellerYes" checked>Yes
+            <input type="radio" name="bestseller" id="bestsellerYes" value="yes" checked>Yes
         </label>
         <label class="radio-inline">
-            <input type="radio" name="bestseller" id="bestsellerNo">No
+            <input type="radio" name="bestseller" id="bestsellerNo" value="no">No
         </label>
 
-        <button type="submit" class="upload-img">Upload Image</button>
+        <label for=productimg>File Upload</label><br>
+        <input type="file" id="productimg" name="productimg"><br>
+
+
         <button type="submit" class="addProduct-btn">Submit</button>
 
     </section>

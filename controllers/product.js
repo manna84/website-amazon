@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const product = require("../models/product");
 const addProductModel = require("../models/addProduct");
+const path = require("path");
 
 router.get("/productListing",(req, res)=>{
 
@@ -81,8 +82,21 @@ router.post("/addProduct",(req, res)=>{
 
         const product = new addProductModel(newProduct);
         product.save()
-        .then(()=>{
-            res.redirect("/")
+        .then((user)=>{
+            req.files.productimg.name = `${user._id}${path.parse(req.files.productimg.name).ext}`
+            req.files.productimg.mv(`public/uploads/${req.files.productimg.name}`)
+            .then(()=>{
+                addProductModel.updateOne({_id:user._id},{
+                    productimg: req.files.productimg.name
+                })
+                .then(()=>{
+                    res.redirect("/")
+                })
+                
+            })
+            .catch()
+
+            
         })
         .catch((err)=>console.log(`Error occured while adding product: ${err}`))
         
