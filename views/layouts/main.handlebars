@@ -28,11 +28,17 @@
                 <li>
                     <ul class="cart-shopping">
                         <li><a href=""><img src = ./img/shopping-cart.svg alt = shopping-cart></a></li>
-                        <li class="btn"><a href="">Cart</a></li>
+                        <li class="btn"><a href="/addProduct">Cart</a></li>
                     </ul>
                 </li>
-                <li><button type="button"><a href="/login">LOG IN</a></button></li>
-                <li><button><a href="/signup">SIGN UP</a></button></li>
+
+                {{!-- {{#if user}} --}}
+                    <li><button><a href="/logout">Logout</a></button></li>
+                {{!-- {{else}} --}}
+                    <li><button type="button"><a href="/login">LOG IN</a></button></li>
+                    <li><button><a href="/signup">SIGN UP</a></button></li>
+                {{!-- {{/if}} --}}
+
             </ul>
         </nav>
         </div>

@@ -2,7 +2,10 @@ const express = require('express')
 const router = express.Router();
 const categoryList = require("../models/catergoryList")
 const bestSeller = require("../models/bestSeller")
-const signupModel = require("../models/signup")
+const signupModel = require("../models/signup");
+const bcrypt = require("bcryptjs");
+const isAuthenticated = require("../middleware/auth.js");
+const userDashboard = require("../middleware/authorization.js");
 
 router.get("/",(req, res)=>{
 
@@ -14,11 +17,21 @@ router.get("/",(req, res)=>{
 
 });
 
-router.get("/dashboard",(req, res)=>{
+
+router.get("/dashboard",isAuthenticated,(req, res)=>{
 
     res.render("dashboard", {
         title : "Welcome Page"
     })
+
+});
+
+
+
+router.get("/logout",(req, res)=>{
+
+    req.session.destroy();
+    res.redirect("/login")
 
 });
 
@@ -29,6 +42,12 @@ router.get("/login",(req, res)=>{
     })
 
 });
+
+// router.get("/profile",isAuthenticated,(req, res)=>{
+
+//     res.render("/dashboard")
+
+// });
 
 router.post("/login",(req, res)=>{
 
@@ -66,10 +85,67 @@ router.post("/login",(req, res)=>{
     }
 
     else {
-        res.redirect("/");
+
+        signupModel.findOne({email:req.body.email})
+        .then(user=>{
+
+            const errors=[]
+
+            if(user==null) {
+
+                errors.push("Sorry, your email and/or password is incorrect");
+                res.render("login",{
+                    errors
+                })
+
+            } 
+            
+            else {
+                bcrypt.compare(req.body.password, user.password)
+                .then(isMatched=>{
+                    if(isMatched) {
+                        req.session.userInfo = user;
+                        userDashboard(req,res);
+                    }
+
+                    else {
+                        errors.push("Sorry, your email and/or password is incorrect");
+                        res.render("login",{
+                            errors
+                    })
+                }
+
+                })
+                .catch((err)=>console.log(`Error : ${err}`));
+                    // res === true
+            }
+        })
+        .catch((err)=>console.log(`Wrong email: ${err}`))
     }
  
 });
+
+router.get("/admin-dashboard",isAuthenticated,(req, res)=>{
+
+    res.render("admin-dashboard", {
+        title : "Welcome Page"
+    })
+
+});
+
+// router.get("/admin-dashboard/:id",isAuthenticated,(req, res)=>{
+
+//     addProductModel.findById(req.params.id)
+//     .then((user)=>{
+//         const {productimg} = user;
+//         res.render("admin-dashboard", {
+//             title : "Welcome Page",
+//             productimg
+//         })
+//     })
+//     .catch((err)=>console.log(`Error: ${err}`))
+
+// });
 
 router.get("/signup",(req,res)=>{
 
