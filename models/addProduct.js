@@ -1,63 +1,52 @@
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-// const addProductSchema = new Schema({
-//     name:
-//     {
-//         type:String,
-//         required:true
-//     },
+const addProductSchema = new Schema({
+    name:
+    {
+        type:String,
+        required:true
+    },
 
-//     lastName:
-//     {
-//         type:String,
-//         required:true
-//     },
+    price:
+    {
+        type:Number,
+        required:true
+    },
 
-//     email:
-//     {
-//         type:String,
-//         required:true
-//     },
+    description:
+    {
+        type:String,
+        required:true
+    },
 
-//     password:
-//     {
-//         type:String,
-//         required:true
-//     },
+    category:
+    {
+        type:String,
+        required:true
+    },
 
-//     dateCreated:
-//     {
-//         type:Date,
-//         default:Date
-//     },
+    quantity:
+    {
+        type:String,
+        required:true
+    },
 
-//     type:
-//     {
-//         type:String,
-//         default:"User"
-//     }
+    bestseller:
+    {
+        type:String,
+        required:true
+    },
 
-// });
+    dateCreated:
+    {
+        type:Date,
+        default:Date.now()
+    },
 
-// signupSchema.pre("save",function(next) {
-
-//     bcrypt.genSalt(10)
-//     .then((salt)=>{
-
-//         bcrypt.hash(this.password,salt)
-//         .then((encryptPassword)=>{
-
-//             this.password = encryptPassword;
-//             next()
-
-//         })
-//         .catch((err)=>console.log(`Error occured hashing: ${err}`))
-//     })
-//     .catch((err)=>console.log(`Error occured encrypting: ${err}`))
-// })
+});
 
 
-// const signupModel = mongoose.model('signup', signupSchema);
+const addProductModel = mongoose.model('addProduct', addProductSchema);
 
-// module.exports = signupModel;
+module.exports = addProductModel;

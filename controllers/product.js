@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router();
-const product = require("../models/product")
+const product = require("../models/product");
+const addProductModel = require("../models/addProduct");
 
 router.get("/productListing",(req, res)=>{
 
@@ -69,48 +70,24 @@ router.post("/addProduct",(req, res)=>{
     }
 
     else {
-        res.redirect("/")
+        const newProduct = {
+            name : req.body.name,
+            price : req.body.price,
+            description : req.body.description,
+            category : req.body.category,
+            quantity : req.body.quantity,
+            bestseller : req.body.bestseller
+        }
+
+        const product = new addProductModel(newProduct);
+        product.save()
+        .then(()=>{
+            res.redirect("/")
+        })
+        .catch((err)=>console.log(`Error occured while adding product: ${err}`))
+        
     }
 
-    // else {
-
-    //     signupModel.findOne({email:req.body.email})
-    //     .then(user=>{
-
-    //         const errors=[]
-
-    //         if(user==null) {
-
-    //             errors.push("Sorry, your email and/or password is incorrect");
-    //             res.render("login",{
-    //                 errors
-    //             })
-
-    //         } 
-            
-    //         else {
-    //             bcrypt.compare(req.body.password, user.password)
-    //             .then(isMatched=>{
-    //                 if(isMatched) {
-    //                     req.session.userInfo = user;
-    //                     userDashboard(req,res);
-    //                 }
-
-    //                 else {
-    //                     errors.push("Sorry, your email and/or password is incorrect");
-    //                     res.render("login",{
-    //                         errors
-    //                 })
-    //             }
-
-    //             })
-    //             .catch((err)=>console.log(`Error : ${err}`));
-    //                 // res === true
-    //         }
-    //     })
-    //     .catch((err)=>console.log(`Wrong email: ${err}`))
-    // }
- 
 });
 
 module.exports = router;
