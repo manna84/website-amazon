@@ -6,7 +6,6 @@ const signupModel = require("../models/signup");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth.js");
 const userDashboard = require("../middleware/authorization.js");
-const addProductModel = require('../models/addProduct');
 
 router.get("/",(req, res)=>{
 
@@ -126,19 +125,27 @@ router.post("/login",(req, res)=>{
  
 });
 
-router.get("/admin-dashboard/:id",isAuthenticated,(req, res)=>{
+router.get("/admin-dashboard",isAuthenticated,(req, res)=>{
 
-    addProductModel.findById(req.params.id)
-    .then((user)=>{
-        const {productimg} = user;
-        res.render("admin-dashboard", {
-            title : "Welcome Page",
-            productimg
-        })
+    res.render("admin-dashboard", {
+        title : "Welcome Page"
     })
-    .catch((err)=>console.log(`Error: ${err}`))
 
 });
+
+// router.get("/admin-dashboard/:id",isAuthenticated,(req, res)=>{
+
+//     addProductModel.findById(req.params.id)
+//     .then((user)=>{
+//         const {productimg} = user;
+//         res.render("admin-dashboard", {
+//             title : "Welcome Page",
+//             productimg
+//         })
+//     })
+//     .catch((err)=>console.log(`Error: ${err}`))
+
+// });
 
 router.get("/signup",(req,res)=>{
 
