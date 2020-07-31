@@ -4,6 +4,7 @@ const categoryList = require("../models/catergoryList")
 const bestSeller = require("../models/bestSeller")
 const signupModel = require("../models/signup");
 const bcrypt = require("bcryptjs");
+const isAuthenticated = require("../middleware/auth.js");
 
 router.get("/",(req, res)=>{
 
@@ -15,7 +16,7 @@ router.get("/",(req, res)=>{
 
 });
 
-router.get("/dashboard",(req, res)=>{
+router.get("/dashboard",isAuthenticated,(req, res)=>{
 
     res.render("dashboard", {
         title : "Welcome Page"
@@ -37,6 +38,12 @@ router.get("/login",(req, res)=>{
     })
 
 });
+
+// router.get("/profile",isAuthenticated,(req, res)=>{
+
+//     res.render("/dashboard")
+
+// });
 
 router.post("/login",(req, res)=>{
 
