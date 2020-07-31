@@ -3,28 +3,36 @@
     <section class="addProduct-info">
         <h2>Add Product</h2>
 
-        <label for = name>Product Name</label><br>
-        <input type="text" id = "name" name="name" placeholder="Please enter the product name"><br>
-        <label for = lastName>Product Price</label><br>
-        <input type="text" id = "price" name="price" placeholder="Please enter Product Price"><br>
-        <label for = description>Product Description</label><br>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
+        {{#each errorMessages}}
+        <div class="errors">{{this}}</div>
+        {{/each}}
+
+        <label for=name>Product Name</label><br>
+        <input type="text" id="name" name="name" placeholder="Please enter the product name" value="{{retainData.name}}"><br>
+        <label for=price>Product Price</label><br>
+        <input type="text" id="price" name="price" placeholder="Please enter Product Price" value="{{retainData.price}}"><br>
+        <label for=description>Product Description</label><br>
+        <textarea name="description" id="description" cols="30" rows="10">{{retainData.description}}</textarea><br>
 
         <label for="category">Product Category</label>
         <select name="category" id="category">
-        <option value="Camera,photo & video">Camera,photo & video</option>
-        <option value="Cell Phone & Accessories">Cell Phone & Accessories</option>
-        <option value="Headphones">Headphones</option>
-        <option value="Computers & Accessories">Computers & Accessories</option>
-        <option value="Portable Audio & Video">Portable Audio & Video</option>
+            <option value="default" selected>{{retainData.category}}</option>
+            <option value="Camera,photo & video">Camera,photo & video</option>
+            <option value="Cell Phone & Accessories">Cell Phone & Accessories</option>
+            <option value="Headphones">Headphones</option>
+            <option value="Computers & Accessories">Computers & Accessories</option>
+            <option value="Portable Audio & Video">Portable Audio & Video</option>
         </select><br>
-        
+
         <label for="quantity">Product Quantity</label>
         <select name="quantity" id="quantity">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+            <option value="default" selected>{{retainData.quantity}}</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            
+            
         </select><br><br>
 
         <label for="bestseller">Add to Bestseller?</label>
@@ -37,7 +45,7 @@
 
         <button type="submit" class="upload-img">Upload Image</button>
         <button type="submit" class="addProduct-btn">Submit</button>
-    
+
     </section>
-    
+
 </form>
