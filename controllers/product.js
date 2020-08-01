@@ -6,11 +6,32 @@ const path = require("path");
 
 router.get("/productListing",(req, res)=>{
 
-    res.render("productListing", {
-        title : "Product Listing Page",
-        product : product.getAllProducts(),
-        featured : product.getFeaturedProducts()
+    addProductModel.find()
+    .then((product)=>{
+
+        const filteredProduct = product.map(product=>{
+            return {
+                id: product._id,
+                name:product.name,
+                description:product.description,
+                price:product.price,
+                category:product.category,
+                quantity:product.quantity,
+                productimg:product.productimg,
+                bestseller:product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title : "Product Listing Page",
+            data:filteredProduct
+            // product : product.getAllProducts(),
+            // featured : product.getFeaturedProducts()
+        })
     })
+    .catch((err)=>console.log(`Error: ${err}`))
+   
 
 });
 
@@ -90,7 +111,7 @@ router.post("/addProduct",(req, res)=>{
                     productimg: req.files.productimg.name
                 })
                 .then(()=>{
-                    res.redirect(`/admin-dashboard/${user._id}`)
+                    res.redirect(`/productListing`)
                 })
                 
             })

@@ -24,16 +24,16 @@
 
     <article class="product-best">
         
-        {{#each featured}}
+        {{#each data}}
         <article class="product-view">
 
             <ul>
-                <li><a href=""><img src="./img/{{this.imgPath}}" alt="camera" class="product-photo"></a></li>
-                <li><a href="" class="product-desc">{{this.description}}</a></li>
+                <li><a href=""><img src="./uploads/{{this.productimg}}" alt="camera" class="product-photo"></a></li>
+                <li><a href="" class="product-desc">{{this.name}}</a></li>
                 <li>
                     <ul class="rating-box">
-                        <li><a href=""><img src="./img/{{this.ratingPath}}" alt="star rating" class="rating"></a></li>
-                        <li><a href "">{{this.reviews}}</a></li>
+                        <li><a href=""><img src="./img/rating-4.png" alt="star rating" class="rating"></a></li>
+                        <li><a href "">123</a></li>
                     </ul>
                 </li>
             
