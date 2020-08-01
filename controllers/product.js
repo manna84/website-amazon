@@ -200,11 +200,11 @@ router.put("/update/:id",(req, res)=>{
 
 router.delete("/delete/:id",(req, res)=>{
 
-    res.render("addProduct", {
-        title : "Add Products"
+    addProductModel.deleteOne({_id:req.params.id})
+    .then(()=>{
+        res.redirect("/admin-productListing")
     })
-
-});
-
+    .catch((err)=>console.log(`Error: ${err}`))
+    })
 
 module.exports = router;

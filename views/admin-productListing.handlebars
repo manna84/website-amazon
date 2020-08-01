@@ -44,11 +44,15 @@
                     </ul>
                 </li>
                 <li><a href="/edit/{{this.id}}" class="edit-btn">Edit</a></li>
-                <li><a href="/edit/{{this.id}}?method="DELETE"" class="delete-btn">Delete</a></li>
+                <li><a href="/delete/{{this.id}}?method=DELETE" class="delete-btn">Delete</a></li>
             </ul>
 
-
         </article>
+
+        {{else}}
+
+            <h3>No Products listed</h3>
+
         {{/each}}
 
     </article>
