@@ -85,6 +85,12 @@ router.post("/addProduct",(req, res)=>{
         bestseller : req.body.bestseller
     }
 
+    const imgValid = /^(?:.jpg|.png|.svg|.jpeg)/
+    const fileExt = `${path.parse(req.files.productimg.name).ext}`
+    if( !fileExt.match(imgValid)) {
+        errors.push("Please check file extension")
+    }
+
     if(errors.length>0) {
         res.render("addProduct", {
             title : "Add Products", 
