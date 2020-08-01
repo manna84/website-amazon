@@ -670,4 +670,13 @@ select {
     font-size: 1em;
 }
 
+.img-box {
+    margin-top: 1em;
+    display: flex;
+}
+
+input[type=file] {
+    margin-left: 2em;
+    padding-top: .3em;
+}
     
