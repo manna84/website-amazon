@@ -1,9 +1,11 @@
 <section class="product-box row">
 
-     <article class="product-bar-list">
+    <article class="product-bar-list">
 
         <ul>
-            <li><h5>Electronics</h5></li>
+            <li>
+                <h5>Electronics</h5>
+            </li>
             <li><a href="">Audio & Home Theatre</a></li>
             <li><a href="">Camera,photo & video</a></li>
             <li><a href="">GPS & Navigation</a></li>
@@ -43,15 +45,20 @@
                         <li><a href=""><img src="./img/prime.png" alt="prime logo" class="prime-logo"></a></li>
                     </ul>
                 </li>
-                <li><a href="/edit/{{this.id}}" class="edit-btn">Edit</a></li>
-                <li><a href="/delete/{{this.id}}?method=DELETE" class="delete-btn">Delete</a></li>
+                <li>
+                    <ul class="update-btn">
+                        <li><a href="/edit/{{this.id}}" class="edit-btn">Edit</a></li>
+                        <li><a href="/delete/{{this.id}}?method=DELETE" class="delete-btn">Delete</a></li>
+                    </ul>
+                </li>
+
             </ul>
 
         </article>
 
         {{else}}
 
-            <h3>No Products listed</h3>
+        <h3>No Products listed</h3>
 
         {{/each}}
 

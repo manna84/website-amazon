@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router();
 // const product = require("../models/product");
 const addProductModel = require("../models/addProduct");
+const isAuthenticated = require("../middleware/auth.js");
 const path = require("path");
+
 
 router.get("/productListing",(req, res)=>{
 
@@ -35,7 +37,7 @@ router.get("/productListing",(req, res)=>{
 
 });
 
-router.get("/addProduct",(req, res)=>{
+router.get("/addProduct",isAuthenticated,(req, res)=>{
 
     res.render("addProduct", {
         title : "Add Products"
@@ -124,7 +126,7 @@ router.post("/addProduct",(req, res)=>{
 
 });
 
-router.get("/admin-productListing",(req, res)=>{
+router.get("/admin-productListing",isAuthenticated,(req, res)=>{
     
     addProductModel.find()
     .then((product)=>{

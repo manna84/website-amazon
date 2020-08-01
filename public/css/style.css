@@ -552,6 +552,30 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
     font-size: 90%;
 }
 
+/*-----------Admin Product Page-----------*/
+
+.update-btn {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.update-btn li {
+    background-color: rgb(71, 71, 248);
+    padding: 1% 2%;
+    width: 5em;
+    text-align: center;
+    border-radius: .1em;
+}
+
+.update-btn li:hover {
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+.update-btn li a {
+    color: #fff;
+}
+
 /*---------------------------------------------------------------------------------------------------*/
 /*-----------Dashboard-----------*/
 /*---------------------------------------------------------------------------------------------------*/
