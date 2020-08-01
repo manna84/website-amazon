@@ -113,7 +113,7 @@ router.post("/addProduct",(req, res)=>{
                     productimg: req.files.productimg.name
                 })
                 .then(()=>{
-                    res.redirect(`/productListing`)
+                    res.redirect(`/admin-productListing`)
                 })
                 
             })
