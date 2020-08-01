@@ -597,6 +597,37 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
     margin: 1em auto;
 }
 
+/*-----------Admin Dashboard-----------*/
+
+.admin-btn {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2em;
+}
+
+.admin-btn li {
+    background-color: #e67e22;
+    padding: 1% 2%;
+    border-radius: .1em;
+}
+
+.admin-btn li:hover {
+    opacity: .8;
+    transition: opacity .2s;
+}
+
+.admin-btn li a {
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.admin-head {
+    margin-bottom: 2em;
+}
+
+
 /*---------------------------------------------------------------------------------------------------*/
 /*-----------Add Product Page-----------*/
 /*---------------------------------------------------------------------------------------------------*/
@@ -639,4 +670,13 @@ select {
     font-size: 1em;
 }
 
+.img-box {
+    margin-top: 1em;
+    display: flex;
+}
+
+input[type=file] {
+    margin-left: 2em;
+    padding-top: .3em;
+}
     
