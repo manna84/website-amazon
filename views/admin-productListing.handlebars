@@ -1,6 +1,6 @@
 <section class="product-box row">
 
-    <article class="product-bar-list">
+     <article class="product-bar-list">
 
         <ul>
             <li><h5>Electronics</h5></li>
@@ -23,7 +23,7 @@
     </article>
 
     <article class="product-best">
-        
+
         {{#each data}}
         <article class="product-view">
 
@@ -36,15 +36,23 @@
                         <li><a href "">123</a></li>
                     </ul>
                 </li>
-            
+
                 <li>
                     <ul class="product-price">
                         <li><a href="">CDN$ {{this.price}}</a></li>
                         <li><a href=""><img src="./img/prime.png" alt="prime logo" class="prime-logo"></a></li>
                     </ul>
+                </li>
+                <li><a href="/edit/{{this.id}}" class="edit-btn">Edit</a></li>
+                <li><a href="/delete/{{this.id}}?method=DELETE" class="delete-btn">Delete</a></li>
             </ul>
-            
+
         </article>
+
+        {{else}}
+
+            <h3>No Products listed</h3>
+
         {{/each}}
 
     </article>

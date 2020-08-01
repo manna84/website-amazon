@@ -1,16 +1,37 @@
 const express = require('express')
 const router = express.Router();
-const product = require("../models/product");
+// const product = require("../models/product");
 const addProductModel = require("../models/addProduct");
 const path = require("path");
 
 router.get("/productListing",(req, res)=>{
 
-    res.render("productListing", {
-        title : "Product Listing Page",
-        product : product.getAllProducts(),
-        featured : product.getFeaturedProducts()
+    addProductModel.find()
+    .then((product)=>{
+
+        const filteredProduct = product.map(product=>{
+            return {
+                id: product._id,
+                name:product.name,
+                description:product.description,
+                price:product.price,
+                category:product.category,
+                quantity:product.quantity,
+                productimg:product.productimg,
+                bestseller:product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title : "Product Listing Page",
+            data:filteredProduct
+            // product : product.getAllProducts(),
+            // featured : product.getFeaturedProducts()
+        })
     })
+    .catch((err)=>console.log(`Error: ${err}`))
+   
 
 });
 
@@ -90,11 +111,10 @@ router.post("/addProduct",(req, res)=>{
                     productimg: req.files.productimg.name
                 })
                 .then(()=>{
-                    res.redirect(`/admin-dashboard/${user._id}`)
+                    res.redirect(`/productListing`)
                 })
                 
             })
-            .catch()
 
             
         })
@@ -103,5 +123,88 @@ router.post("/addProduct",(req, res)=>{
     }
 
 });
+
+router.get("/admin-productListing",(req, res)=>{
+    
+    addProductModel.find()
+    .then((product)=>{
+
+        const filteredProduct = product.map(product=>{
+            return {
+                id: product._id,
+                name:product.name,
+                description:product.description,
+                price:product.price,
+                category:product.category,
+                quantity:product.quantity,
+                productimg:product.productimg,
+                bestseller:product.bestseller
+
+            }
+        });
+
+        res.render("admin-productListing", {
+            title : "Admin Products",
+            data:filteredProduct
+        })
+    })
+    .catch((err)=>console.log(`Error: ${err}`))
+   
+
+});
+
+router.get("/edit/:id",(req, res)=>{
+
+    addProductModel.findById(req.params.id)
+    .then((product)=>{
+        const {_id,name,description,price,category,quantity,bestseller,productimg} = product;
+
+        res.render("edit-productListing", {
+            title : "Update Products",
+            _id,
+            name,
+            price,
+            description,
+            category,
+            quantity,
+            bestseller,
+            productimg
+        })
+
+    })
+    .catch((err)=>console.log(`Error: ${err}`))
+
+    
+
+});
+
+router.put("/update/:id",(req, res)=>{
+
+    const product = {
+        name : req.body.name,
+        price : req.body.price,
+        description : req.body.description,
+        category : req.body.category,
+        quantity : req.body.quantity,
+        bestseller : req.body.bestseller,
+        productimg : req.body.productimg
+    }
+
+    addProductModel.updateOne({_id:req.params.id},product)
+    .then(()=>{
+        res.redirect("/admin-productListing")
+    })
+    .catch((err)=>console.log(`Error: ${err}`))
+
+});
+
+router.delete("/delete/:id",(req, res)=>{
+
+    addProductModel.deleteOne({_id:req.params.id})
+    .then(()=>{
+        res.redirect("/admin-productListing")
+    })
+    .catch((err)=>console.log(`Error: ${err}`))
+    })
 
 module.exports = router;
