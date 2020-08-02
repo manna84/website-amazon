@@ -514,6 +514,7 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
 }
 
 .product-best {
+    width: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
