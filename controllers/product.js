@@ -175,8 +175,7 @@ router.get("/edit/:id",(req, res)=>{
             description,
             category,
             quantity,
-            bestseller,
-            productimg
+            bestseller
         })
 
     })
@@ -194,8 +193,7 @@ router.put("/update/:id",(req, res)=>{
         description : req.body.description,
         category : req.body.category,
         quantity : req.body.quantity,
-        bestseller : req.body.bestseller,
-        productimg : req.body.productimg
+        bestseller : req.body.bestseller
     }
 
     addProductModel.updateOne({_id:req.params.id},product)
