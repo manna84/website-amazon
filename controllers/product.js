@@ -6,46 +6,46 @@ const isAuthenticated = require("../middleware/auth.js");
 const path = require("path");
 
 
-router.get("/productListing",(req, res)=>{
+router.get("/productListing", (req, res) => {
 
     addProductModel.find()
-    .then((product)=>{
+        .then((product) => {
 
-        const filteredProduct = product.map(product=>{
-            return {
-                id: product._id,
-                name:product.name,
-                description:product.description,
-                price:product.price,
-                category:product.category,
-                quantity:product.quantity,
-                productimg:product.productimg,
-                bestseller:product.bestseller
+            const filteredProduct = product.map(product => {
+                return {
+                    id: product._id,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    category: product.category,
+                    quantity: product.quantity,
+                    productimg: product.productimg,
+                    bestseller: product.bestseller
 
-            }
-        });
+                }
+            });
 
-        res.render("productListing", {
-            title : "Product Listing Page",
-            data:filteredProduct
-            // product : product.getAllProducts(),
-            // featured : product.getFeaturedProducts()
+            res.render("productListing", {
+                title: "Product Listing Page",
+                data: filteredProduct
+                // product : product.getAllProducts(),
+                // featured : product.getFeaturedProducts()
+            })
         })
-    })
-    .catch((err)=>console.log(`Error: ${err}`))
-   
+        .catch((err) => console.log(`Error: ${err}`))
+
 
 });
 
-router.get("/addProduct",isAuthenticated,(req, res)=>{
+router.get("/addProduct", isAuthenticated, (req, res) => {
 
     res.render("addProduct", {
-        title : "Add Products"
+        title: "Add Products"
     })
 
 });
 
-router.post("/addProduct",(req, res)=>{
+router.post("/addProduct", (req, res) => {
 
     const errors = [];
 
@@ -53,7 +53,7 @@ router.post("/addProduct",(req, res)=>{
         errors.push("Please enter Product Name...!!!")
     }
 
-    if (req.body.price == ""){
+    if (req.body.price == "") {
         errors.push("Please enter Product Price...!!!")
     }
 
@@ -63,154 +63,158 @@ router.post("/addProduct",(req, res)=>{
         errors.push("Price must contain only digits")
     }
 
-    if (req.body.description == ""){
+    if (req.body.description == "") {
         errors.push("Please enter Product Description...!!!")
     }
 
-    if (req.body.category == "Select Category"){
+    if (req.body.category == "Select Category") {
         errors.push("Please select Product Category...!!!")
     }
 
-    if (req.body.quantity == "Select Quantity"){
+    if (req.body.quantity == "Select Quantity") {
         errors.push("Please select Product quantity...!!!")
     }
 
 
     let noRefreshProduct = {
-        name : req.body.name,
-        price : req.body.price,
-        description : req.body.description,
-        category : req.body.category,
-        quantity : req.body.quantity,
-        bestseller : req.body.bestseller
+        name: req.body.name,
+        price: req.body.price,
+        description: req.body.description,
+        category: req.body.category,
+        quantity: req.body.quantity,
+        bestseller: req.body.bestseller
     }
 
     const imgValid = /^(?:.jpg|.png|.svg|.jpeg)/
     const fileExt = `${path.parse(req.files.productimg.name).ext}`
-    if( !fileExt.match(imgValid)) {
+    if (!fileExt.match(imgValid)) {
         errors.push("Please check file extension")
     }
 
-    if(errors.length>0) {
+    if (errors.length > 0) {
         res.render("addProduct", {
-            title : "Add Products", 
-            errorMessages : errors,
-            retainData : noRefreshProduct
+            title: "Add Products",
+            errorMessages: errors,
+            retainData: noRefreshProduct
         })
     }
 
     else {
         const newProduct = {
-            name : req.body.name,
-            price : req.body.price,
-            description : req.body.description,
-            category : req.body.category,
-            quantity : req.body.quantity,
-            bestseller : req.body.bestseller
+            name: req.body.name,
+            price: req.body.price,
+            description: req.body.description,
+            category: req.body.category,
+            quantity: req.body.quantity,
+            bestseller: req.body.bestseller
         }
 
         const product = new addProductModel(newProduct);
         product.save()
-        .then((user)=>{
-            req.files.productimg.name = `${user._id}${path.parse(req.files.productimg.name).ext}`
-            req.files.productimg.mv(`public/uploads/${req.files.productimg.name}`)
-            .then(()=>{
-                addProductModel.updateOne({_id:user._id},{
-                    productimg: req.files.productimg.name
-                })
-                .then(()=>{
-                    res.redirect(`/admin-productListing`)
-                })
-                
-            })
+            .then((user) => {
+                req.files.productimg.name = `${user._id}${path.parse(req.files.productimg.name).ext}`
+                req.files.productimg.mv(`public/uploads/${req.files.productimg.name}`)
+                    .then(() => {
+                        addProductModel.updateOne({ _id: user._id }, {
+                            productimg: req.files.productimg.name
+                        })
+                            .then(() => {
+                                res.redirect(`/admin-productListing`)
+                            })
 
-            
-        })
-        .catch((err)=>console.log(`Error occured while adding product: ${err}`))
-        
+                    })
+
+
+            })
+            .catch((err) => console.log(`Error occured while adding product: ${err}`))
+
     }
 
 });
 
-router.get("/admin-productListing",isAuthenticated,(req, res)=>{
-    
+router.get("/admin-productListing", isAuthenticated, (req, res) => {
+
     addProductModel.find()
-    .then((product)=>{
+        .then((product) => {
 
-        const filteredProduct = product.map(product=>{
-            return {
-                id: product._id,
-                name:product.name,
-                description:product.description,
-                price:product.price,
-                category:product.category,
-                quantity:product.quantity,
-                productimg:product.productimg,
-                bestseller:product.bestseller
+            const filteredProduct = product.map(product => {
+                return {
+                    id: product._id,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    category: product.category,
+                    quantity: product.quantity,
+                    productimg: product.productimg,
+                    bestseller: product.bestseller
 
-            }
-        });
+                }
+            });
 
-        res.render("admin-productListing", {
-            title : "Admin Products",
-            data:filteredProduct
+            res.render("admin-productListing", {
+                title: "Admin Products",
+                data: filteredProduct
+            })
         })
-    })
-    .catch((err)=>console.log(`Error: ${err}`))
-   
+        .catch((err) => console.log(`Error: ${err}`))
+
 
 });
 
-router.get("/edit/:id",(req, res)=>{
+router.get("/edit/:id", (req, res) => {
 
     addProductModel.findById(req.params.id)
-    .then((product)=>{
-        const {_id,name,description,price,category,quantity,bestseller,productimg} = product;
+        .then((product) => {
+            const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
 
-        res.render("edit-productListing", {
-            title : "Update Products",
-            _id,
-            name,
-            price,
-            description,
-            category,
-            quantity,
-            bestseller
+            res.render("edit-productListing", {
+                title: "Update Products",
+                _id,
+                name,
+                price,
+                description,
+                category,
+                quantity,
+                bestseller
+            })
+
         })
+        .catch((err) => console.log(`Error: ${err}`))
 
-    })
-    .catch((err)=>console.log(`Error: ${err}`))
 
-    
 
 });
 
-router.put("/update/:id",(req, res)=>{
+router.put("/update/:id", (req, res) => {
 
     const product = {
-        name : req.body.name,
-        price : req.body.price,
-        description : req.body.description,
-        category : req.body.category,
-        quantity : req.body.quantity,
-        bestseller : req.body.bestseller
+        name: req.body.name,
+        price: req.body.price,
+        description: req.body.description,
+        category: req.body.category,
+        quantity: req.body.quantity,
+        bestseller: req.body.bestseller
     }
 
-    addProductModel.updateOne({_id:req.params.id},product)
-    .then(()=>{
-        res.redirect("/admin-productListing")
-    })
-    .catch((err)=>console.log(`Error: ${err}`))
+    addProductModel.updateOne({ _id: req.params.id }, product)
+        .then(() => {
+            res.redirect("/admin-productListing")
+        })
+        .catch((err) => console.log(`Error: ${err}`))
 
 });
 
-router.delete("/delete/:id",(req, res)=>{
+router.delete("/delete/:id", (req, res) => {
 
-    addProductModel.deleteOne({_id:req.params.id})
-    .then(()=>{
-        res.redirect("/admin-productListing")
-    })
-    .catch((err)=>console.log(`Error: ${err}`))
-    })
+    addProductModel.deleteOne({ _id: req.params.id })
+        .then(() => {
+            res.redirect("/admin-productListing")
+        })
+        .catch((err) => console.log(`Error: ${err}`))
+})
+
+router.get("/cart",(req,res) => {
+    res.render("cart")
+})
 
 module.exports = router;
