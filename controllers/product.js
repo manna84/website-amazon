@@ -213,8 +213,8 @@ router.delete("/delete/:id", (req, res) => {
         .catch((err) => console.log(`Error: ${err}`))
 })
 
-router.get("/cart",(req,res) => {
-    res.render("cart")
+router.get("/product-detail",(req,res) => {
+    res.render("product-detail")
 })
 
 module.exports = router;

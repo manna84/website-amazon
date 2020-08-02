@@ -554,6 +554,21 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
     font-size: 90%;
 }
 
+.btn-view {
+    background-color: #FEBD69;
+    width: 60%;
+    border-radius: .1em;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 400;
+    padding: 1%;
+}
+
+.btn-view a {
+    color: #000000;
+    letter-spacing: .5px;
+}
+
 /*-----------Admin Product Page-----------*/
 
 .update-btn {
