@@ -26,8 +26,6 @@ router.get("/dashboard",isAuthenticated,(req, res)=>{
 
 });
 
-
-
 router.get("/logout",(req, res)=>{
 
     req.session.destroy();
