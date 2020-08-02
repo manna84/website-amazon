@@ -121,9 +121,7 @@ router.post("/addProduct", (req, res) => {
                             .then(() => {
                                 res.redirect(`/admin-productListing`)
                             })
-
                     })
-
 
             })
             .catch((err) => console.log(`Error occured while adding product: ${err}`))
@@ -213,25 +211,46 @@ router.delete("/delete/:id", (req, res) => {
         .catch((err) => console.log(`Error: ${err}`))
 })
 
-router.get("/product-detail/:id",(req,res) => {
+router.get("/product-detail/:id", (req, res) => {
     addProductModel.findById(req.params.id)
-    .then((product) => {
-        const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
+        .then((product) => {
+            const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
 
-        res.render("product-detail", {
-            title: "View Product",
-            _id,
-            name,
-            price,
-            description,
-            category,
-            quantity,
-            bestseller,
-            productimg
+            res.render("product-detail", {
+                title: "View Product",
+                _id,
+                name,
+                price,
+                description,
+                category,
+                quantity,
+                bestseller,
+                productimg
+            })
+
         })
+        .catch((err) => console.log(`Error: ${err}`))
+})
 
-    })
-    .catch((err) => console.log(`Error: ${err}`))
+router.get("/cart/:id", (req, res) => {
+    addProductModel.findById(req.params.id)
+        .then((product) => {
+            const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
+
+            res.render("cart", {
+                title: "Cart",
+                _id,
+                name,
+                price,
+                description,
+                category,
+                quantity,
+                bestseller,
+                productimg
+            })
+
+        })
+        .catch((err) => console.log(`Error: ${err}`))
 })
 
 module.exports = router;

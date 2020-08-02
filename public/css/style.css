@@ -722,7 +722,7 @@ input[type=file] {
 }
 
 /*---------------------------------------------------------------------------------------------------*/
-/*-----------Cart-----------*/
+/*-----------product-detail-----------*/
 /*---------------------------------------------------------------------------------------------------*/
 
 .section-cart {
@@ -812,4 +812,37 @@ input[type=file] {
     height: 2em;
     border-radius: .2em;
     background-color: #000000;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+/*------------Cart-----------*/
+/*---------------------------------------------------------------------------------------------------*/
+
+.price-box {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff2e1;
+    color: #000000;
+    padding: 2%;
+    margin-top: 1em;
+}
+
+.price-box ul li:first-of-type {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.price-box ul li:last-of-type {
+    font-weight: 700;
+    color: red;
+    margin-top: 1em;
+}
+
+.price-box span {
+    margin-left: 1em;
+}
+
+.item-order {
+    margin-top: 1em;
 }
