@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router();
 // const product = require("../models/product");
 const addProductModel = require("../models/addProduct");
+const isAuthenticated = require("../middleware/auth.js");
 const path = require("path");
+
 
 router.get("/productListing",(req, res)=>{
 
@@ -35,7 +37,7 @@ router.get("/productListing",(req, res)=>{
 
 });
 
-router.get("/addProduct",(req, res)=>{
+router.get("/addProduct",isAuthenticated,(req, res)=>{
 
     res.render("addProduct", {
         title : "Add Products"
@@ -83,6 +85,12 @@ router.post("/addProduct",(req, res)=>{
         bestseller : req.body.bestseller
     }
 
+    const imgValid = /^(?:.jpg|.png|.svg|.jpeg)/
+    const fileExt = `${path.parse(req.files.productimg.name).ext}`
+    if( !fileExt.match(imgValid)) {
+        errors.push("Please check file extension")
+    }
+
     if(errors.length>0) {
         res.render("addProduct", {
             title : "Add Products", 
@@ -111,7 +119,7 @@ router.post("/addProduct",(req, res)=>{
                     productimg: req.files.productimg.name
                 })
                 .then(()=>{
-                    res.redirect(`/productListing`)
+                    res.redirect(`/admin-productListing`)
                 })
                 
             })
@@ -124,7 +132,7 @@ router.post("/addProduct",(req, res)=>{
 
 });
 
-router.get("/admin-productListing",(req, res)=>{
+router.get("/admin-productListing",isAuthenticated,(req, res)=>{
     
     addProductModel.find()
     .then((product)=>{
@@ -167,8 +175,7 @@ router.get("/edit/:id",(req, res)=>{
             description,
             category,
             quantity,
-            bestseller,
-            productimg
+            bestseller
         })
 
     })
@@ -186,8 +193,7 @@ router.put("/update/:id",(req, res)=>{
         description : req.body.description,
         category : req.body.category,
         quantity : req.body.quantity,
-        bestseller : req.body.bestseller,
-        productimg : req.body.productimg
+        bestseller : req.body.bestseller
     }
 
     addProductModel.updateOne({_id:req.params.id},product)
