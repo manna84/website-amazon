@@ -478,7 +478,7 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
 
 .product-bar-list {
     margin-right: 2%;
-    width: 30%;
+    width: 20%;
 }
 
 .product-bar-list li:first-of-type a {
@@ -502,6 +502,7 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
     height: 9em;
     display: block;
     margin: .5em auto;
+    max-width: 100%;
 }
 
 .rating {
