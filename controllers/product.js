@@ -213,8 +213,25 @@ router.delete("/delete/:id", (req, res) => {
         .catch((err) => console.log(`Error: ${err}`))
 })
 
-router.get("/product-detail",(req,res) => {
-    res.render("product-detail")
+router.get("/product-detail/:id",(req,res) => {
+    addProductModel.findById(req.params.id)
+    .then((product) => {
+        const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
+
+        res.render("product-detail", {
+            title: "View Product",
+            _id,
+            name,
+            price,
+            description,
+            category,
+            quantity,
+            bestseller,
+            productimg
+        })
+
+    })
+    .catch((err) => console.log(`Error: ${err}`))
 })
 
 module.exports = router;

@@ -1,13 +1,16 @@
 <section class="section-cart row">
-
     <div class="cart-box">
-        <img src="./img/ps4.png" alt="ps4" class="cart-img">
+        <div>
+            <img src="/uploads/{{productimg}}" alt="ps4" class="cart-img">
+        </div>
+                
+
         <article class="cart-details">
+
             <ul>
-                <li><a href="">Hello this is playstation</a></li>
-                <li class="cart-price">Price : <span>CAD$ 199.99</span></li>
-                <li class="cart-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio facere commodi
-                    aspernatur nisi iusto dicta</li>
+                <li><a href="">{{name}}</a></li>
+                <li class="cart-price">Price : <span>CAD$ {{price}}</span></li>
+                <li class="cart-desc">{{description}}</li>
                 <li class="cart-stock">In Stock</li>
                 <li class="cart-quantity">
                     <label for="cart-quantity">Quantity</label>
@@ -17,9 +20,10 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                     </select></li>
-                <li class="cart-btn"><img src="./img/cart.png" alt="cart"><a href="">Add to Cart</a></li>
+                <li class="cart-btn"><img src="/img/cart.png" alt="cart"><a href="">Add to Cart</a></li>
             </ul>
-        </article>
-    </div>
 
+        </article>
+
+    </div>
 </section>

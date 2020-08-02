@@ -736,12 +736,18 @@ input[type=file] {
     background-color: #f7f7f7;
 }
 
+.cart-box div {
+    width: 50%;
+    text-align: center;
+}
+
 .cart-img {
     height: 20em;
 }
 
 .cart-details {
     padding: 1%;
+    width: 50%;
 }
 
 .cart-details ul li:first-of-type a{
