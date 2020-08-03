@@ -731,7 +731,6 @@ input[type=file] {
 
 .cart-box {
     display: flex;
-    padding: 1%;
     border: .01em solid #dfdfdf;
     background-color: #f7f7f7;
 }
@@ -743,12 +742,15 @@ input[type=file] {
 
 .cart-img {
     height: 20em;
+    max-width: 100%;
 }
 
 .cart-details {
-    padding: 1%;
+    padding: 2%;
     width: 50%;
+    background-color: #f1f1f1;
 }
+
 
 .cart-details ul li:first-of-type a{
     color: #555555;

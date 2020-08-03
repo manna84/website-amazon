@@ -14,10 +14,11 @@
                 <li class="cart-quantity">
                     <label for="cart-quantity">Quantity</label>
                     <select name="cart-quantity" id="cart-quantity">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                         <option value="1" {{#compare1 quantity}} {{select}} {{/compare1}}>1</option>
+                            <option value="2" {{#compare2 quantity}} {{select}} {{/compare2}}>2</option>
+                            <option value="3" {{#compare3 quantity}} {{select}} {{/compare3}}>3</option>
+                            <option value="4" {{#compare4 quantity}} {{select}} {{/compare4}}>4</option>
+                            <option value="5" {{#compare5 quantity}} {{select}} {{/compare5}}>5</option>
                     </select></li>
                 <li class="cart-btn"><img src="/img/cart.png" alt="cart"><a href="">Place your order</a></li>
             </ul>
@@ -28,8 +29,8 @@
     <div class="price-box">
         <ul>
             <li>Order Summary</li>
-            <li class="item-order">Items: 12</li>
-            <li>Total Order: <span>CDN$ 213.33</span></li>
+            <li class="items-order">Items: 12</li>
+            <li>Total Order: <span>CDN$ {{#Totalprice quantity price}} {{select}} {{/Totalprice}}</span></li>
         </ul>
     </div>
 </section>

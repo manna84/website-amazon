@@ -41,6 +41,12 @@ app.engine('handlebars', exphbs(
                 if(value==5||value=="Portable Audio & Video") {
                     return options.fn({select:fix});
                 }
+            },
+            Totalprice:function(value,value2, options) {
+                if(value) {
+                    const total=value*value2;
+                    return options.fn({select:total});
+                }
             }
         }
     }
