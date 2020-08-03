@@ -16,16 +16,17 @@
 
         <label for="category">Product Category</label>
         <select name="category" id="category">
-            <option value="default" selected>{{category}}</option>
-            <option value="Camera,photo & video">Camera,photo & video</option>
-            <option value="Cell Phone & Accessories">Cell Phone & Accessories</option>
-            <option value="Headphones">Headphones</option>
-            <option value="Computers & Accessories">Computers & Accessories</option>
+            <option value="default" selected>Select Category</option>
+            <option value="Camera,photo & video" {{#compare1 category}} {{select}} {{/compare1}}>Camera,photo & video</option>
+            <option value="Cell Phone & Accessories" {{#compare2 category}} {{select}} {{/compare2}}>Cell Phone & Accessories</option>
+            <option value="Headphones" {{#compare3 category}} {{select}} {{/compare3}}>Headphones</option>
+            <option value="Computers & Accessories" {{#compare4 category}} {{select}} {{/compare4}}>Computers & Accessories</option>
             <option value="Portable Audio & Video">Portable Audio & Video</option>
         </select><br>
 
         <label for="quantity">Product Quantity</label>
         <select name="quantity" id="quantity">
+            <option value="default" selected>Select Category</option>
             <option value="1" {{#compare1 quantity}} {{select}} {{/compare1}}>1</option>
             <option value="2" {{#compare2 quantity}} {{select}} {{/compare2}}>2</option>
             <option value="3" {{#compare3 quantity}} {{select}} {{/compare3}}>3</option>

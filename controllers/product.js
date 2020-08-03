@@ -67,17 +67,17 @@ router.post("/addProduct", (req, res) => {
         errors.push("Please enter Product Description...!!!")
     }
 
-    if (req.body.category == "Select Category") {
+    if (req.body.category == "default") {
         errors.push("Please select Product Category...!!!")
     }
 
-    if (req.body.quantity == "Select Quantity") {
+    if (req.body.quantity == "default") {
         errors.push("Please select Product quantity...!!!")
     }
 
-    if (req.files.productimg == 0)  {
-        errors.push("asdasdads")
-    }
+    // if (req.files.productimg == 0)  {
+    //     errors.push("asdasdads")
+    // }
 
     let noRefreshProduct = {
         name: req.body.name,
@@ -93,9 +93,6 @@ router.post("/addProduct", (req, res) => {
     if (!fileExt.match(imgValid)) {
         errors.push("Please check file extension")
     }
-
-    
-
 
     // if (req.files.productimg = isNull) {
     //     errors.push("Please upload a Product Image")

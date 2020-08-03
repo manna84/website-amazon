@@ -13,26 +13,26 @@ app.engine('handlebars', exphbs(
     {
         helpers:{
             compare1:function(value, options) {
-                if(value==1) {
-                    let fix="selected"
+                let fix="selected"
+                if(value==1||value=="Camera,photo & video") {
                     return options.fn({select:fix});
                 }
             },
             compare2:function(value, options) {
                 let fix="selected"
-                if(value==2) {
+                if(value==2||value=="Cell Phone & Accessories") {
                     return options.fn({select:fix});
                 }
             },
             compare3:function(value, options) {
                 let fix="selected"
-                if(value==3) {
+                if(value==3||value=="Headphones") {
                     return options.fn({select:fix});
                 }
             },
             compare4:function(value, options) {
                 let fix="selected"
-                if(value==4) {
+                if(value==4||value=="Computers & Accessories") {
                     return options.fn({select:fix});
                 }
             }
