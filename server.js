@@ -9,7 +9,37 @@ require('dotenv').config({path:"./config/keys.env"});
 
 const app = express();
 
-app.engine('handlebars', exphbs());
+app.engine('handlebars', exphbs(
+    {
+        helpers:{
+            compare1:function(value, options) {
+                if(value==1) {
+                    let fix="selected"
+                    return options.fn({select:fix});
+                }
+            },
+            compare2:function(value, options) {
+                let fix="selected"
+                if(value==2) {
+                    return options.fn({select:fix});
+                }
+            },
+            compare3:function(value, options) {
+                let fix="selected"
+                if(value==3) {
+                    return options.fn({select:fix});
+                }
+            },
+            compare4:function(value, options) {
+                let fix="selected"
+                if(value==4) {
+                    return options.fn({select:fix});
+                }
+            }
+        }
+    }
+
+));
 app.set('view engine', 'handlebars');
 
 app.use(express.static("public"));
