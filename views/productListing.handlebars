@@ -28,20 +28,23 @@
         <article class="product-view">
 
             <ul>
-                <li><a href=""><img src="./uploads/{{this.productimg}}" alt="camera" class="product-photo"></a></li>
-                <li><a href="" class="product-desc">{{this.name}}</a></li>
+                <li><a href="/product-detail/{{this.id}}"><img src="./uploads/{{this.productimg}}" alt="camera" class="product-photo"></a></li>
+                <li><a href="/product-detail/{{this.id}}" class="product-desc">{{this.name}}</a></li>
                 <li>
                     <ul class="rating-box">
-                        <li><a href=""><img src="./img/rating-4.png" alt="star rating" class="rating"></a></li>
-                        <li><a href "">123</a></li>
+                        <li><img src="./img/rating-4.png" alt="star rating" class="rating"></li>
+                        <li>123</li>
                     </ul>
                 </li>
             
                 <li>
                     <ul class="product-price">
-                        <li><a href="">CDN$ {{this.price}}</a></li>
-                        <li><a href=""><img src="./img/prime.png" alt="prime logo" class="prime-logo"></a></li>
+                        <li><a href="/product-detail/{{this.id}}">CDN$ {{this.price}}</a></li>
+                        <li><img src="./img/prime.png" alt="prime logo" class="prime-logo"></li>
                     </ul>
+                <li>
+
+                {{!-- <li class="btn-view"><a href="/product-detail/{{this.id}}">View Product</a></li> --}}
             </ul>
             
         </article>

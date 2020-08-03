@@ -9,7 +9,49 @@ require('dotenv').config({path:"./config/keys.env"});
 
 const app = express();
 
-app.engine('handlebars', exphbs());
+app.engine('handlebars', exphbs(
+    {
+        helpers:{
+            compare1:function(value, options) {
+                let fix="selected"
+                if(value==1||value=="Camera,photo & video") {
+                    return options.fn({select:fix});
+                }
+            },
+            compare2:function(value, options) {
+                let fix="selected"
+                if(value==2||value=="Cell Phone & Accessories") {
+                    return options.fn({select:fix});
+                }
+            },
+            compare3:function(value, options) {
+                let fix="selected"
+                if(value==3||value=="Headphones") {
+                    return options.fn({select:fix});
+                }
+            },
+            compare4:function(value, options) {
+                let fix="selected"
+                if(value==4||value=="Computers & Accessories") {
+                    return options.fn({select:fix});
+                }
+            },
+            compare5:function(value, options) {
+                let fix="selected"
+                if(value==5||value=="Portable Audio & Video") {
+                    return options.fn({select:fix});
+                }
+            },
+            Totalprice:function(value,value2, options) {
+                if(value) {
+                    const total=value*value2;
+                    return options.fn({select:total});
+                }
+            }
+        }
+    }
+
+));
 app.set('view engine', 'handlebars');
 
 app.use(express.static("public"));
