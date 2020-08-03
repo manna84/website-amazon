@@ -35,6 +35,12 @@ app.engine('handlebars', exphbs(
                 if(value==4||value=="Computers & Accessories") {
                     return options.fn({select:fix});
                 }
+            },
+            compare5:function(value, options) {
+                let fix="selected"
+                if(value==5||value=="Portable Audio & Video") {
+                    return options.fn({select:fix});
+                }
             }
         }
     }
