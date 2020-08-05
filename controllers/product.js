@@ -67,15 +67,15 @@ router.post("/addProduct", (req, res) => {
         errors.push("Please enter Product Description...!!!")
     }
 
-    if (req.body.category == "default") {
+    if (req.body.category == "Select Category") {
         errors.push("Please select Product Category...!!!")
     }
 
-    if (req.body.quantity == "default") {
+    if (req.body.quantity == "Select Quantity") {
         errors.push("Please select Product quantity...!!!")
     }
 
-    // if (req.files.productimg == 0)  {
+    // if (req.files.productimg == "0")  {
     //     errors.push("asdasdads")
     // }
 
