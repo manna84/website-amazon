@@ -247,7 +247,7 @@ router.post("/signup",(req, res)=>{
                 };
                         sgMail.send(msg)
                         .then(() => {
-                            res.redirect(`/dashboard`)
+                            res.redirect(`/login`)
                         })
                 })
                 .catch(err=>console.log(`Error happened when inserting in DB: ${err}`))
