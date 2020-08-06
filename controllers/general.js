@@ -231,7 +231,7 @@ router.post("/signup",(req, res)=>{
     };
             sgMail.send(msg)
 
-            .then(() => {
+                .then(() => {
 
                 const newUser = {
                     name:name,
