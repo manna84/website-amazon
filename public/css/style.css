@@ -456,7 +456,7 @@ input[type=password],input[type=email],.signin-info input[type=text], .addProduc
 
 .goods-list ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .goods-list img {

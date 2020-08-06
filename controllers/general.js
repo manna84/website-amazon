@@ -3,17 +3,36 @@ const router = express.Router();
 const categoryList = require("../models/catergoryList")
 const bestSeller = require("../models/bestSeller")
 const signupModel = require("../models/signup");
+const addProductModel = require("../models/addProduct");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth.js");
 const userDashboard = require("../middleware/authorization.js");
 
 router.get("/",(req, res)=>{
 
-    res.render("home", {
-        title : "Home Page",
-        category : categoryList.getAllcategoryLists(),
-        bestSellerItem : bestSeller.getAllbestSeller()
+    addProductModel.find({bestseller: "yes"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                productimg: product.productimg
+            }
+        });
+
+        res.render("home", {
+            title : "Home Page",
+            category : categoryList.getAllcategoryLists(),
+            data : filteredProduct
+        })
     })
+    .catch((err) => console.log(`Error: ${err}`))
+
+    // res.render("home", {
+    //     title : "Home Page",
+    //     category : categoryList.getAllcategoryLists(),
+    //     bestSellerItem : bestSeller.getAllbestSeller()
+    // })
 
 });
 
