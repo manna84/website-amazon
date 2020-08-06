@@ -18,7 +18,7 @@ router.get("/",(req, res)=>{
 });
 
 
-router.get("/dashboard",isAuthenticated,(req, res)=>{
+router.get("/dashboard",(req, res)=>{
 
     res.render("dashboard", {
         title : "Welcome Page"
@@ -217,21 +217,13 @@ router.post("/signup",(req, res)=>{
     }
 
     else {
-        // res.redirect("/");
-        const {name, email, lastName,password} = req.body;
-        // console.log(req.body)
+        signupModel.findOne({email:req.body.email})
+        .then(user => {
 
-        const sgMail = require('@sendgrid/mail');
-        sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
-        const msg = {
-            to: 'mannasingh84@gmail.com',
-            from: `${email}`,
-            subject: 'Welcome to the Amazon family',
-            html: `Hi ${name} ${lastName} <br><h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>`,
-    };
-            sgMail.send(msg)
+            const errors=[];
+            const {name, email, lastName,password} = req.body;
 
-                .then(() => {
+            if(user==null) {
 
                 const newUser = {
                     name:name,
@@ -244,14 +236,32 @@ router.post("/signup",(req, res)=>{
 
                 signup.save()
                 .then(()=>{
-                    res.redirect("/dashboard");
+
+                    const sgMail = require('@sendgrid/mail');
+                    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+                    const msg = {
+                        to: 'mannasingh84@gmail.com',
+                        from: `${email}`,
+                        subject: 'Welcome to the Amazon family',
+                        html: `Hi ${name} ${lastName} <br><h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>`,
+                };
+                        sgMail.send(msg)
+                        .then(() => {
+                            res.redirect(`/dashboard`)
+                        })
                 })
                 .catch(err=>console.log(`Error happened when inserting in DB: ${err}`))
-            })
-            .catch(err => {
-                console.log(`Error ${err}`);
-            })
+            }
 
+            else {
+                errors.push("Sorry, this email already exist");
+                res.render("signup",{
+                    errors
+                })
+            }
+
+        })
+        .catch(err=>console.log(`Error occured: ${err}`))
     }
 
 });
