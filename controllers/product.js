@@ -279,4 +279,145 @@ router.get("/receipt/:id", (req, res) => {
 
 });
 
+
+router.get("/change1", (req, res) => {
+
+        addProductModel.find({category: "Camera,photo & video"})
+        .then((product) => {
+
+            const filteredProduct = product.map(product => {
+                return {
+                    id: product._id,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    category: product.category,
+                    quantity: product.quantity,
+                    productimg: product.productimg,
+                    bestseller: product.bestseller
+
+                }
+            });
+
+            res.render("productListing", {
+                title: "Products",
+                data: filteredProduct
+            })
+        })
+        .catch((err) => console.log(`Error: ${err}`))
+
+});
+
+router.get("/change2", (req, res) => {
+
+    addProductModel.find({category: "Cell Phone & Accessories"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
+router.get("/change3", (req, res) => {
+
+    addProductModel.find({category: "Headphones"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
+router.get("/change4", (req, res) => {
+
+    addProductModel.find({category: "Computers & Accessories"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
+router.get("/change5", (req, res) => {
+
+    addProductModel.find({category: "Portable Audio & Video"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
 module.exports = router;
