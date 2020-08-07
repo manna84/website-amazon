@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 // const product = require("../models/product");
 const addProductModel = require("../models/addProduct");
+const signupModel = require("../models/signup");
 const isAuthenticated = require("../middleware/auth.js");
 const path = require("path");
 
@@ -28,8 +29,7 @@ router.get("/productListing", (req, res) => {
             res.render("productListing", {
                 title: "Product Listing Page",
                 data: filteredProduct
-                // product : product.getAllProducts(),
-                // featured : product.getFeaturedProducts()
+
             })
         })
         .catch((err) => console.log(`Error: ${err}`))
@@ -75,7 +75,7 @@ router.post("/addProduct", (req, res) => {
         errors.push("Please select Product quantity...!!!")
     }
 
-    if (req.files == null ) {
+    if (req.files == null) {
         errors.push("Please upload a Product Image")
     }
 
@@ -259,5 +259,24 @@ router.get("/cart/:id", (req, res) => {
         })
         .catch((err) => console.log(`Error: ${err}`))
 })
+
+router.get("/receipt/:id", (req, res) => {
+
+    addProductModel.findById(req.params.id)
+        .then((product) => {
+            const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
+            const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+            const msg = {
+                to: 'mannasingh84@gmail.com',
+                from: `purpleps84@gmail.com`,
+                subject: 'Welcome to the Amazon family',
+                html: `Hi <br>${product.name} <br><h1>Order Details</h1><br><br><p>${product.description}</p><br>${product.quantity}<br><img src="./public/uploads/${product.productimg}" alt="ps4" class="cart-img">`,
+            };
+            sgMail.send(msg)
+        })
+        .catch(err => console.log(`Error happened when inserting in DB: ${err}`))
+
+});
 
 module.exports = router;

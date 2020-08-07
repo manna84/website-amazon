@@ -20,7 +20,7 @@
                         <option value="4" {{#compare4 quantity}} {{select}} {{/compare4}}>4</option>
                         <option value="5" {{#compare5 quantity}} {{select}} {{/compare5}}>5</option>
                     </select></li>
-                <li class="cart-btn" id="cart-btn"<img src="/img/cart.png" alt="cart"><a href="">Place your order</a></li>
+                <li class="cart-btn" id="cart-btn"<img src="/img/cart.png" alt="cart"><a href="/receipt/{{_id}}">Place your order</a></li>
             </ul>
 
         </article>
@@ -33,4 +33,10 @@
             <li>Total Order: <span>CDN$ {{#Totalprice quantity price}} {{select}} {{/Totalprice}}</span></li>
         </ul>
     </div>
+
+    {{!-- <a href="/receipt/{{_id}}">aaaaaaaaaaaaa</a> --}}
+
+   
 </section>
+<div id="emailBtn" class="row">
+</div>
