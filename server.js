@@ -47,6 +47,18 @@ app.engine('handlebars', exphbs(
                     const total=value*value2;
                     return options.fn({select:total});
                 }
+            },
+            radioCompare:function(value, options) {
+                let fix="checked"
+                if(value=="yes") {
+                    return options.fn({check:fix});
+                }
+            },
+            radioCompare1:function(value, options) {
+                let fix="checked"
+                if(value=="no") {
+                    return options.fn({check:fix});
+                }
             }
         }
     }

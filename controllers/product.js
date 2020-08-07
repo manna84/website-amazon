@@ -179,7 +179,8 @@ router.get("/edit/:id", (req, res) => {
                 description,
                 category,
                 quantity,
-                bestseller
+                bestseller,
+                productimg
             })
 
         })

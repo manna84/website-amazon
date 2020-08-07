@@ -36,10 +36,10 @@
 
         <label for="bestseller">Add to Bestseller?</label>
         <label class="radio-inline">
-            <input type="radio" name="bestseller" id="bestsellerYes" value="yes" checked>Yes
+            <input type="radio" name="bestseller" id="bestsellerYes" value="yes" {{#radioCompare bestseller}} {{check}} {{/radioCompare}}>Yes
         </label>
         <label class="radio-inline">
-            <input type="radio" name="bestseller" id="bestsellerNo" value="no">No
+            <input type="radio" name="bestseller" id="bestsellerNo" value="no" {{#radioCompare1 bestseller}} {{check}} {{/radioCompare1}}>No
         </label>
 
         <div class="img-box">
