@@ -269,7 +269,7 @@ router.get("/receipt/:id", isAuthenticated, (req, res) => {
                 to: 'mannasingh84@gmail.com',
                 from: `purpleps84@gmail.com`,
                 subject: 'Welcome to the Amazon family',
-                html: `Hi <br>${product.name} <br><h1>Order Details</h1><br><br><p>${product.description}</p><br>${product.quantity}<br><img src="./uploads/${product.productimg}" alt="ps4" class="cart-img">`,
+                html: `Hi <br><br><h1>Order Details</h1><br><br><p>Product Name: ${product.name}<br>About Product: ${product.description}</p><br>Total Items: ${product.quantity}<br><img src="/uploads/${product.productimg}" alt="ps4" class="cart-img">`,
             };
             sgMail.send(msg)
         })

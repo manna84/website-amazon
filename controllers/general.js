@@ -122,7 +122,7 @@ router.post("/login",(req, res)=>{
                 .then(isMatched=>{
                     if(isMatched) {
                         req.session.userInfo = user;
-                        res.redirect("/admin-dashboard")
+                        userDashboard(req,res);
                     }
 
                     else {
