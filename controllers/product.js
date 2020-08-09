@@ -165,7 +165,7 @@ router.get("/admin-productListing", isAuthenticated, (req, res) => {
 
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id",isAuthenticated, (req, res) => {
 
     addProductModel.findById(req.params.id)
         .then((product) => {
@@ -186,11 +186,9 @@ router.get("/edit/:id", (req, res) => {
         })
         .catch((err) => console.log(`Error: ${err}`))
 
-
-
 });
 
-router.put("/update/:id", (req, res) => {
+router.put("/update/:id", isAuthenticated, (req, res) => {
 
     const product = {
         name: req.body.name,
@@ -209,7 +207,7 @@ router.put("/update/:id", (req, res) => {
 
 });
 
-router.delete("/delete/:id", (req, res) => {
+router.delete("/delete/:id", isAuthenticated, (req, res) => {
 
     addProductModel.deleteOne({ _id: req.params.id })
         .then(() => {
@@ -239,7 +237,7 @@ router.get("/product-detail/:id", (req, res) => {
         .catch((err) => console.log(`Error: ${err}`))
 })
 
-router.get("/cart/:id", (req, res) => {
+router.get("/cart/:id", isAuthenticated, (req, res) => {
     addProductModel.findById(req.params.id)
         .then((product) => {
             const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
@@ -260,7 +258,7 @@ router.get("/cart/:id", (req, res) => {
         .catch((err) => console.log(`Error: ${err}`))
 })
 
-router.get("/receipt/:id", (req, res) => {
+router.get("/receipt/:id", isAuthenticated, (req, res) => {
 
     addProductModel.findById(req.params.id)
         .then((product) => {
@@ -271,7 +269,7 @@ router.get("/receipt/:id", (req, res) => {
                 to: 'mannasingh84@gmail.com',
                 from: `purpleps84@gmail.com`,
                 subject: 'Welcome to the Amazon family',
-                html: `Hi <br>${product.name} <br><h1>Order Details</h1><br><br><p>${product.description}</p><br>${product.quantity}<br><img src="./public/uploads/${product.productimg}" alt="ps4" class="cart-img">`,
+                html: `Hi <br>${product.name} <br><h1>Order Details</h1><br><br><p>${product.description}</p><br>${product.quantity}<br><img src="./uploads/${product.productimg}" alt="ps4" class="cart-img">`,
             };
             sgMail.send(msg)
         })

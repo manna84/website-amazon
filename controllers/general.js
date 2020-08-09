@@ -37,7 +37,7 @@ router.get("/",(req, res)=>{
 });
 
 
-router.get("/dashboard",(req, res)=>{
+router.get("/dashboard",isAuthenticated,(req, res)=>{
 
     res.render("dashboard", {
         title : "Welcome Page"
@@ -122,7 +122,7 @@ router.post("/login",(req, res)=>{
                 .then(isMatched=>{
                     if(isMatched) {
                         req.session.userInfo = user;
-                        userDashboard(req,res);
+                        res.redirect("/admin-dashboard")
                     }
 
                     else {
@@ -142,7 +142,7 @@ router.post("/login",(req, res)=>{
  
 });
 
-router.get("/admin-dashboard",isAuthenticated,(req, res)=>{
+router.get("/admin-dashboard",isAuthenticated, (req, res)=>{
 
     res.render("admin-dashboard", {
         title : "Welcome Page"
