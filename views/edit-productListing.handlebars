@@ -36,14 +36,16 @@
 
         <label for="bestseller">Add to Bestseller?</label>
         <label class="radio-inline">
-            <input type="radio" name="bestseller" id="bestsellerYes" value="yes" checked>Yes
+            <input type="radio" name="bestseller" id="bestsellerYes" value="yes" {{#radioCompare bestseller}} {{check}} {{/radioCompare}}>Yes
         </label>
         <label class="radio-inline">
-            <input type="radio" name="bestseller" id="bestsellerNo" value="no">No
+            <input type="radio" name="bestseller" id="bestsellerNo" value="no" {{#radioCompare1 bestseller}} {{check}} {{/radioCompare1}}>No
         </label>
 
-        <label for=productimg>File Upload</label><br>
-        <input type="file" id="productimg" name="productimg" value="{{productimg}}"><br>
+        <div class="img-box">
+            <label for=productimg>File Upload</label><br>
+            <input type="file" id="productimg" name="productimg"><br>
+        </div>
 
 
         <button type="submit" class="addProduct-btn">Submit</button>

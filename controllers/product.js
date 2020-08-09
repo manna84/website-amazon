@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 // const product = require("../models/product");
 const addProductModel = require("../models/addProduct");
+const signupModel = require("../models/signup");
 const isAuthenticated = require("../middleware/auth.js");
 const path = require("path");
 
@@ -28,8 +29,7 @@ router.get("/productListing", (req, res) => {
             res.render("productListing", {
                 title: "Product Listing Page",
                 data: filteredProduct
-                // product : product.getAllProducts(),
-                // featured : product.getFeaturedProducts()
+
             })
         })
         .catch((err) => console.log(`Error: ${err}`))
@@ -67,17 +67,25 @@ router.post("/addProduct", (req, res) => {
         errors.push("Please enter Product Description...!!!")
     }
 
-    if (req.body.category == "default") {
+    if (req.body.category == "Select Category") {
         errors.push("Please select Product Category...!!!")
     }
 
-    if (req.body.quantity == "default") {
+    if (req.body.quantity == "Select Quantity") {
         errors.push("Please select Product quantity...!!!")
     }
 
-    // if (req.files.productimg == 0)  {
-    //     errors.push("asdasdads")
-    // }
+    if (req.files == null) {
+        errors.push("Please upload a Product Image")
+    }
+
+    else {
+        const imgValid = /^(?:.jpg|.png|.svg|.jpeg)/
+        const fileExt = `${path.parse(req.files.productimg.name).ext}`
+        if (!fileExt.match(imgValid)) {
+            errors.push("Please check file extension")
+        }
+    }
 
     let noRefreshProduct = {
         name: req.body.name,
@@ -88,15 +96,6 @@ router.post("/addProduct", (req, res) => {
         bestseller: req.body.bestseller
     }
 
-    const imgValid = /^(?:.jpg|.png|.svg|.jpeg)/
-    const fileExt = `${path.parse(req.files.productimg.name).ext}`
-    if (!fileExt.match(imgValid)) {
-        errors.push("Please check file extension")
-    }
-
-    // if (req.files.productimg = isNull) {
-    //     errors.push("Please upload a Product Image")
-    // }
 
     if (errors.length > 0) {
         res.render("addProduct", {
@@ -166,7 +165,7 @@ router.get("/admin-productListing", isAuthenticated, (req, res) => {
 
 });
 
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id",isAuthenticated, (req, res) => {
 
     addProductModel.findById(req.params.id)
         .then((product) => {
@@ -180,17 +179,16 @@ router.get("/edit/:id", (req, res) => {
                 description,
                 category,
                 quantity,
-                bestseller
+                bestseller,
+                productimg
             })
 
         })
         .catch((err) => console.log(`Error: ${err}`))
 
-
-
 });
 
-router.put("/update/:id", (req, res) => {
+router.put("/update/:id", isAuthenticated, (req, res) => {
 
     const product = {
         name: req.body.name,
@@ -209,7 +207,7 @@ router.put("/update/:id", (req, res) => {
 
 });
 
-router.delete("/delete/:id", (req, res) => {
+router.delete("/delete/:id", isAuthenticated, (req, res) => {
 
     addProductModel.deleteOne({ _id: req.params.id })
         .then(() => {
@@ -239,7 +237,7 @@ router.get("/product-detail/:id", (req, res) => {
         .catch((err) => console.log(`Error: ${err}`))
 })
 
-router.get("/cart/:id", (req, res) => {
+router.get("/cart/:id", isAuthenticated, (req, res) => {
     addProductModel.findById(req.params.id)
         .then((product) => {
             const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
@@ -259,5 +257,165 @@ router.get("/cart/:id", (req, res) => {
         })
         .catch((err) => console.log(`Error: ${err}`))
 })
+
+router.get("/receipt/:id", isAuthenticated, (req, res) => {
+
+    addProductModel.findById(req.params.id)
+        .then((product) => {
+            const { _id, name, description, price, category, quantity, bestseller, productimg } = product;
+            const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+            const msg = {
+                to: 'mannasingh84@gmail.com',
+                from: `purpleps84@gmail.com`,
+                subject: 'Welcome to the Amazon family',
+                html: `Hi <br>${product.name} <br><h1>Order Details</h1><br><br><p>${product.description}</p><br>${product.quantity}<br><img src="./uploads/${product.productimg}" alt="ps4" class="cart-img">`,
+            };
+            sgMail.send(msg)
+        })
+        .catch(err => console.log(`Error happened when inserting in DB: ${err}`))
+
+});
+
+
+router.get("/change1", (req, res) => {
+
+        addProductModel.find({category: "Camera,photo & video"})
+        .then((product) => {
+
+            const filteredProduct = product.map(product => {
+                return {
+                    id: product._id,
+                    name: product.name,
+                    description: product.description,
+                    price: product.price,
+                    category: product.category,
+                    quantity: product.quantity,
+                    productimg: product.productimg,
+                    bestseller: product.bestseller
+
+                }
+            });
+
+            res.render("productListing", {
+                title: "Products",
+                data: filteredProduct
+            })
+        })
+        .catch((err) => console.log(`Error: ${err}`))
+
+});
+
+router.get("/change2", (req, res) => {
+
+    addProductModel.find({category: "Cell Phone & Accessories"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
+router.get("/change3", (req, res) => {
+
+    addProductModel.find({category: "Headphones"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
+router.get("/change4", (req, res) => {
+
+    addProductModel.find({category: "Computers & Accessories"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
+
+router.get("/change5", (req, res) => {
+
+    addProductModel.find({category: "Portable Audio & Video"})
+    .then((product) => {
+
+        const filteredProduct = product.map(product => {
+            return {
+                id: product._id,
+                name: product.name,
+                description: product.description,
+                price: product.price,
+                category: product.category,
+                quantity: product.quantity,
+                productimg: product.productimg,
+                bestseller: product.bestseller
+
+            }
+        });
+
+        res.render("productListing", {
+            title: "Products",
+            data: filteredProduct
+        })
+    })
+    .catch((err) => console.log(`Error: ${err}`))
+    
+});
 
 module.exports = router;

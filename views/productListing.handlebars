@@ -2,8 +2,20 @@
 
     <article class="product-bar-list">
 
-        <ul>
-            <li><h5>Electronics</h5></li>
+         <label for="category">Product Category</label>
+        <select name="category" id="category" onchange="retain()">
+            <option value="All Categories" selected>All Categories</option>
+            <option value="Camera,photo & video">Camera,photo & video</option>
+            <option value="Cell Phone & Accessories">Cell Phone & Accessories</option>
+            <option value="Headphones">Headphones</option>
+            <option value="Computers & Accessories">Computers & Accessories</option>
+            <option value="Portable Audio & Video">Portable Audio & Video</option>
+        </select><br>
+
+        {{!-- <ul>
+            <li>
+                <h5>Electronics</h5>
+            </li>
             <li><a href="">Audio & Home Theatre</a></li>
             <li><a href="">Camera,photo & video</a></li>
             <li><a href="">GPS & Navigation</a></li>
@@ -18,17 +30,18 @@
             <li><a href="">Security and surveillance</a></li>
             <li><a href="">Telephone and Accessories</a></li>
             <li><a href="">Televisions & Video</a></li>
-        </ul>
+        </ul> --}}
 
     </article>
 
     <article class="product-best">
-        
+
         {{#each data}}
         <article class="product-view">
 
             <ul>
-                <li><a href="/product-detail/{{this.id}}"><img src="./uploads/{{this.productimg}}" alt="camera" class="product-photo"></a></li>
+                <li><a href="/product-detail/{{this.id}}"><img src="./uploads/{{this.productimg}}" alt="camera"
+                            class="product-photo"></a></li>
                 <li><a href="/product-detail/{{this.id}}" class="product-desc">{{this.name}}</a></li>
                 <li>
                     <ul class="rating-box">
@@ -36,7 +49,7 @@
                         <li>123</li>
                     </ul>
                 </li>
-            
+
                 <li>
                     <ul class="product-price">
                         <li><a href="/product-detail/{{this.id}}">CDN$ {{this.price}}</a></li>
@@ -44,9 +57,9 @@
                     </ul>
                 <li>
 
-                {{!-- <li class="btn-view"><a href="/product-detail/{{this.id}}">View Product</a></li> --}}
+                    {{!-- <li class="btn-view"><a href="/product-detail/{{this.id}}">View Product</a></li> --}}
             </ul>
-            
+
         </article>
         {{/each}}
 
