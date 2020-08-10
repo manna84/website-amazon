@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <title>{{title}}</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/queries.css">
 </head>
+
 <body>
     <header>
 
@@ -20,29 +23,29 @@
                     <input type="text" placeholder="Search for Item" class="bar-search">
                     <button><img src="/img/search.svg" alt="search-lens"></button>
                 </div>
-        </div>
-       
-        <nav class="main-nav">
-            <ul>
-                <li class="btn"><a href="">Prime</a></li>
-                <li>
-                    <ul class="cart-shopping">
-                        <li><a href=""><img src = /img/shopping-cart.svg alt = shopping-cart></a></li>
-                        <li class="btn"><a href="/cart">Cart</a></li>
-                    </ul>
-                </li>
+            </div>
 
-                {{#if user}}
+            <nav class="main-nav">
+                <ul>
+                    <li class="btn"><a href="">Prime</a></li>
+                    <li>
+                        <ul class="cart-shopping">
+                            <li><a href=""><img src=/img/shopping-cart.svg alt=shopping-cart></a></li>
+                            <li class="btn"><a href="/cart">Cart</a></li>
+                        </ul>
+                    </li>
+
+                    {{#if user}}
                     <li><button><a href="/logout">Logout</a></button></li>
-                {{else}}
+                    {{else}}
                     <li><button type="button"><a href="/login">LOG IN</a></button></li>
                     <li><button><a href="/signup">SIGN UP</a></button></li>
-                {{/if}}
+                    {{/if}}
 
-            </ul>
-        </nav>
+                </ul>
+            </nav>
         </div>
-        
+
     </header>
 
     <main>
@@ -51,56 +54,64 @@
 
     <footer>
 
-       <section class="first-footer footer-box row">
-           <ul>
-               <li><h4>Get to Know Us</h4></li>
-               <li><a href="">Careers</a></li>
-               <li><a href="">Amazon and Our Planet</a></li>
-               <li><a href="">Investor Relations</a></li>
-               <li><a href="">Press Releases</a></li>
-           </ul>
+        <section class="first-footer footer-box row">
+            <ul>
+                <li>
+                    <h4>Get to Know Us</h4>
+                </li>
+                <li><a href="">Careers</a></li>
+                <li><a href="">Amazon and Our Planet</a></li>
+                <li><a href="">Investor Relations</a></li>
+                <li><a href="">Press Releases</a></li>
+            </ul>
 
             <ul>
-               <li><h4>Make Money with Us</h4></li>
-               <li><a href="">Sell on Amazon</a></li>
-               <li><a href="">Sell Under Amazon Accelerator</a></li>
-               <li><a href="">Amazon Associates</a></li>
-               <li><a href="">Sell on Amazon Handmade</a></li>
-               <li><a href="">Advertise Your Products</a></li>
-               <li><a href="">Independently Publish</a></li>
-           </ul>
-                       
-            <ul>
-               <li><h4>Amazon Payment Products</h4></li>
-               <li><a href="">Amazon.ca Rewards Mastercard</a></li>
-               <li><a href="">Shop with Points</a></li>
-               <li><a href="">Reload Your Balance</a></li>
-               <li><a href="">Amazon Currency Converter</a></li>
-               <li><a href="">Gift Cards</a></li>
-               <li><a href="">Amazon Cash</a></li>
-           </ul>
-
-           <ul>
-               <li><h4>Let Us Help You</h4></li>
-               <li><a href="">COVID-19 and Amazon</a></li>
-               <li><a href="">Shipping Rates & Policies</a></li>
-               <li><a href="">Amazon Prime</a></li>
-               <li><a href="">Returns Are Easy</a></li>
-               <li><a href="">Manage your Content and Devices</a></li>
-               <li><a href="">Customer Service</a></li>
-           </ul>
-       </section>
-
-       <section class="second-footer footer-box row">
+                <li>
+                    <h4>Make Money with Us</h4>
+                </li>
+                <li><a href="">Sell on Amazon</a></li>
+                <li><a href="">Sell Under Amazon Accelerator</a></li>
+                <li><a href="">Amazon Associates</a></li>
+                <li><a href="">Sell on Amazon Handmade</a></li>
+                <li><a href="">Advertise Your Products</a></li>
+                <li><a href="">Independently Publish</a></li>
+            </ul>
 
             <ul>
-                <li><a href="#"><img src="/img/logo-amazon.png" alt = amazon-logo class="main-logo"></a></li>
+                <li>
+                    <h4>Amazon Payment Products</h4>
+                </li>
+                <li><a href="">Amazon.ca Rewards Mastercard</a></li>
+                <li><a href="">Shop with Points</a></li>
+                <li><a href="">Reload Your Balance</a></li>
+                <li><a href="">Amazon Currency Converter</a></li>
+                <li><a href="">Gift Cards</a></li>
+                <li><a href="">Amazon Cash</a></li>
+            </ul>
+
+            <ul>
+                <li>
+                    <h4>Let Us Help You</h4>
+                </li>
+                <li><a href="">COVID-19 and Amazon</a></li>
+                <li><a href="">Shipping Rates & Policies</a></li>
+                <li><a href="">Amazon Prime</a></li>
+                <li><a href="">Returns Are Easy</a></li>
+                <li><a href="">Manage your Content and Devices</a></li>
+                <li><a href="">Customer Service</a></li>
+            </ul>
+        </section>
+
+        <section class="second-footer footer-box row">
+
+            <ul>
+                <li><a href="#"><img src="/img/logo-amazon.png" alt=amazon-logo class="main-logo"></a></li>
                 <li><select id="country" name="Country">
-                    <option value="UK">UK</option>
-                    <option value="Canada" selected>Canada</option>
-                    <option value="US">US</option>
-                    <option value="France">France</option>
-                </select></li>
+                        <option value="UK">UK</option>
+                        <option value="Canada" selected>Canada</option>
+                        <option value="US">US</option>
+                        <option value="France">France</option>
+                    </select></li>
             </ul>
 
             <ul class="social-list">
@@ -109,22 +120,23 @@
                 <li><a href=""><img src="/img/twitter.svg" alt="facebook icon"></a></li>
                 <li><a href=""><img src="/img/youtube.svg" alt="facebook icon"></a></li>
                 <li><a href=""><img src="/img/snapchat.svg" alt="facebook icon"></a></li>
-           </ul>
-       </section>
+            </ul>
+        </section>
 
-       <section class="third-footer">
-           <ul>
+        <section class="third-footer">
+            <ul>
                 <li><a href="">Conditions of Use</a></li>
                 <li><a href="">Privacy Notice</a></li>
                 <li><a href="">Interest-Based Ads</a></li>
-           </ul>
+            </ul>
 
-           <p>&copy; 2008-2020, Amazon.com, Inc. or its affiliates</p>
+            <p>&copy; 2008-2020, Amazon.com, Inc. or its affiliates</p>
 
-       </section>
+        </section>
 
     </footer>
 
     <script src="/js/index.js"></script>
 </body>
+
 </html>

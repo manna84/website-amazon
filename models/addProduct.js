@@ -4,49 +4,49 @@ const Schema = mongoose.Schema;
 const addProductSchema = new Schema({
     name:
     {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
 
     price:
     {
-        type:Number,
-        required:true
+        type: Number,
+        required: true
     },
 
     description:
     {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
 
     category:
     {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
 
     quantity:
     {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
 
     bestseller:
     {
-        type:String,
-        required:true
+        type: String,
+        required: true
     },
 
     productimg:
     {
-        type:String
+        type: String
     },
 
     dateCreated:
     {
-        type:Date,
-        default:Date.now()
+        type: Date,
+        default: Date.now()
     },
 
 });

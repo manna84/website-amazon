@@ -1,5 +1,5 @@
-const isLoggedIn = (req,res,next)=>{
-    if(req.session.userInfo) {
+const isLoggedIn = (req, res, next) => {
+    if (req.session.userInfo) {
         next();
     }
 

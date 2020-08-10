@@ -1,7 +1,7 @@
 const bestSeller = {
 
-    bestSellerDB : [],
-    
+    bestSellerDB: [],
+
     initDB() {
 
         this.bestSellerDB.push({
@@ -23,13 +23,13 @@ const bestSeller = {
         this.bestSellerDB.push({
             imgPath: "echo.png"
         })
-        
+
     },
-    
+
     getAllbestSeller() {
 
         return this.bestSellerDB;
-        
+
     },
 
 }

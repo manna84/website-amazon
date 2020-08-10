@@ -1,72 +1,59 @@
 const express = require('express')
 const router = express.Router();
 const categoryList = require("../models/catergoryList")
-const bestSeller = require("../models/bestSeller")
 const signupModel = require("../models/signup");
 const addProductModel = require("../models/addProduct");
 const bcrypt = require("bcryptjs");
 const isAuthenticated = require("../middleware/auth.js");
 const userDashboard = require("../middleware/authorization.js");
 
-router.get("/",(req, res)=>{
+router.get("/", (req, res) => {
 
-    addProductModel.find({bestseller: "yes"})
-    .then((product) => {
+    addProductModel.find({ bestseller: "yes" })
+        .then((product) => {
 
-        const filteredProduct = product.map(product => {
-            return {
-                id: product._id,
-                productimg: product.productimg
-            }
-        });
+            const filteredProduct = product.map(product => {
+                return {
+                    id: product._id,
+                    productimg: product.productimg
+                }
+            });
 
-        res.render("home", {
-            title : "Home Page",
-            category : categoryList.getAllcategoryLists(),
-            data : filteredProduct
+            res.render("home", {
+                title: "Home Page",
+                category: categoryList.getAllcategoryLists(),
+                data: filteredProduct
+            })
         })
-    })
-    .catch((err) => console.log(`Error: ${err}`))
-
-    // res.render("home", {
-    //     title : "Home Page",
-    //     category : categoryList.getAllcategoryLists(),
-    //     bestSellerItem : bestSeller.getAllbestSeller()
-    // })
+        .catch((err) => console.log(`Error: ${err}`))
 
 });
 
 
-router.get("/dashboard",isAuthenticated,(req, res)=>{
+router.get("/dashboard", isAuthenticated, (req, res) => {
 
     res.render("dashboard", {
-        title : "Welcome Page"
+        title: "Welcome Page"
     })
 
 });
 
-router.get("/logout",(req, res)=>{
+router.get("/logout", (req, res) => {
 
     req.session.destroy();
     res.redirect("/login")
 
 });
 
-router.get("/login",(req, res)=>{
+router.get("/login", (req, res) => {
 
     res.render("login", {
-        title : "Login Page"
+        title: "Login Page"
     })
 
 });
 
-// router.get("/profile",isAuthenticated,(req, res)=>{
-
-//     res.render("/dashboard")
-
-// });
-
-router.post("/login",(req, res)=>{
+router.post("/login", (req, res) => {
 
     const errors = [];
 
@@ -74,7 +61,7 @@ router.post("/login",(req, res)=>{
         errors.push("Please enter an Email...!!!")
     }
 
-    if (req.body.password == ""){
+    if (req.body.password == "") {
         errors.push("Please enter a Password...!!!")
     }
 
@@ -89,92 +76,76 @@ router.post("/login",(req, res)=>{
     }
 
     let noRefreshLogin = {
-        email : req.body.email,
-        password : req.body.password,
+        email: req.body.email,
+        password: req.body.password,
     }
 
-    if(errors.length>0) {
+    if (errors.length > 0) {
         res.render("login", {
-            title : "Login Page", 
-            errorMessages : errors,
-            retainData : noRefreshLogin
+            title: "Login Page",
+            errorMessages: errors,
+            retainData: noRefreshLogin
         })
     }
 
     else {
 
-        signupModel.findOne({email:req.body.email})
-        .then(user=>{
+        signupModel.findOne({ email: req.body.email })
+            .then(user => {
 
-            const errors=[]
+                const errors = []
 
-            if(user==null) {
+                if (user == null) {
 
-                errors.push("Sorry, your email and/or password is incorrect");
-                res.render("login",{
-                    errors
-                })
-
-            } 
-            
-            else {
-                bcrypt.compare(req.body.password, user.password)
-                .then(isMatched=>{
-                    if(isMatched) {
-                        req.session.userInfo = user;
-                        userDashboard(req,res);
-                    }
-
-                    else {
-                        errors.push("Sorry, your email and/or password is incorrect");
-                        res.render("login",{
-                            errors
+                    errors.push("Sorry, your email and/or password is incorrect");
+                    res.render("login", {
+                        errors
                     })
+
                 }
 
-                })
-                .catch((err)=>console.log(`Error : ${err}`));
-                    // res === true
-            }
-        })
-        .catch((err)=>console.log(`Wrong email: ${err}`))
+                else {
+                    bcrypt.compare(req.body.password, user.password)
+                        .then(isMatched => {
+                            if (isMatched) {
+                                req.session.userInfo = user;
+                                userDashboard(req, res);
+                            }
+
+                            else {
+                                errors.push("Sorry, your email and/or password is incorrect");
+                                res.render("login", {
+                                    errors
+                                })
+                            }
+
+                        })
+                        .catch((err) => console.log(`Error : ${err}`));
+                }
+            })
+            .catch((err) => console.log(`Wrong email: ${err}`))
     }
- 
+
 });
 
-router.get("/admin-dashboard",isAuthenticated, (req, res)=>{
+router.get("/admin-dashboard", isAuthenticated, (req, res) => {
 
     res.render("admin-dashboard", {
-        title : "Welcome Page"
+        title: "Welcome Page"
     })
 
 });
 
-// router.get("/admin-dashboard/:id",isAuthenticated,(req, res)=>{
-
-//     addProductModel.findById(req.params.id)
-//     .then((user)=>{
-//         const {productimg} = user;
-//         res.render("admin-dashboard", {
-//             title : "Welcome Page",
-//             productimg
-//         })
-//     })
-//     .catch((err)=>console.log(`Error: ${err}`))
-
-// });
-
-router.get("/signup",(req,res)=>{
+router.get("/signup", (req, res) => {
 
     res.render("signup", {
         title: "SignUp Page"
     })
 });
 
-router.post("/signup",(req, res)=>{
+router.post("/signup", (req, res) => {
 
     const errors = [];
-
 
     if (req.body.name == "") {
         errors.push("Please enter a name...!!!")
@@ -198,7 +169,7 @@ router.post("/signup",(req, res)=>{
         errors.push("Please enter an Email...!!!")
     }
 
-    if (req.body.password == ""){
+    if (req.body.password == "") {
         errors.push("Please enter a Password...!!!")
     }
 
@@ -221,70 +192,68 @@ router.post("/signup",(req, res)=>{
     }
 
     let noRefreshSignup = {
-        name : req.body.name,
-        lastName : req.body.lastName,
-        email : req.body.email,
-        password : req.body.password,
+        name: req.body.name,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
     }
-    
-    if(errors.length>0) {
+
+    if (errors.length > 0) {
         res.render("signup", {
             title: "SignUp Page",
-            errorMessages : errors,
-            retainData : noRefreshSignup
+            errorMessages: errors,
+            retainData: noRefreshSignup
         })
     }
 
     else {
-        signupModel.findOne({email:req.body.email})
-        .then(user => {
+        signupModel.findOne({ email: req.body.email })
+            .then(user => {
 
-            const errors=[];
-            const {name, email, lastName,password} = req.body;
+                const errors = [];
+                const { name, email, lastName, password } = req.body;
 
-            if(user==null) {
+                if (user == null) {
 
-                const newUser = {
-                    name:name,
-                    lastName:lastName,
-                    email:email,
-                    password:password
+                    const newUser = {
+                        name: name,
+                        lastName: lastName,
+                        email: email,
+                        password: password
+                    }
+
+                    const signup = new signupModel(newUser);
+
+                    signup.save()
+                        .then(() => {
+
+                            const sgMail = require('@sendgrid/mail');
+                            sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+                            const msg = {
+                                to: 'mannasingh84@gmail.com',
+                                from: `${email}`,
+                                subject: 'Welcome to the Amazon family',
+                                html: `Hi ${name} ${lastName} <br><h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>`,
+                            };
+                            sgMail.send(msg)
+                                .then(() => {
+                                    res.redirect(`/login`)
+                                })
+                        })
+                        .catch(err => console.log(`Error happened when inserting in DB: ${err}`))
                 }
 
-                const signup = new signupModel(newUser);
+                else {
+                    errors.push("Sorry, this email already exist");
+                    res.render("signup", {
+                        errors
+                    })
+                }
 
-                signup.save()
-                .then(()=>{
-
-                    const sgMail = require('@sendgrid/mail');
-                    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
-                    const msg = {
-                        to: 'mannasingh84@gmail.com',
-                        from: `${email}`,
-                        subject: 'Welcome to the Amazon family',
-                        html: `Hi ${name} ${lastName} <br><h1>Welcome to Amazon</h1><br><br><p>Subscribe today and enjoy 12 weeks of Kindle for only $6—a savings of 50%.<br>Read award-winning writing on politics and international affairs, culture and entertainment, business and technology—in print and online.</p><br><h4>Regards<br>Amazon Marketing Team</h4>`,
-                };
-                        sgMail.send(msg)
-                        .then(() => {
-                            res.redirect(`/login`)
-                        })
-                })
-                .catch(err=>console.log(`Error happened when inserting in DB: ${err}`))
-            }
-
-            else {
-                errors.push("Sorry, this email already exist");
-                res.render("signup",{
-                    errors
-                })
-            }
-
-        })
-        .catch(err=>console.log(`Error occured: ${err}`))
+            })
+            .catch(err => console.log(`Error occured: ${err}`))
     }
 
 });
-
-
 
 module.exports = router;

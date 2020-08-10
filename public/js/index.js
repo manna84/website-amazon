@@ -6,30 +6,30 @@ cartBtn.addEventListener('click', () => {
 
 function retain() {
 
-    let x = document.getElementById('category').value;  
+    let x = document.getElementById('category').value;
     console.log(x);
 
-    if(x == "All Categories") {
+    if (x == "All Categories") {
         window.location.assign("/productListing")
     }
 
-    else if(x == "Camera,photo & video") {
+    else if (x == "Camera,photo & video") {
         window.location.assign("/change1")
     }
 
-    else if(x == "Cell Phone & Accessories") {
+    else if (x == "Cell Phone & Accessories") {
         window.location.assign("/change2")
     }
 
-    else if(x == "Headphones") {
+    else if (x == "Headphones") {
         window.location.assign("/change3")
     }
 
-    else if(x == "Computers & Accessories") {
+    else if (x == "Computers & Accessories") {
         window.location.assign("/change4")
     }
 
-    else if(x == "Portable Audio & Video") {
+    else if (x == "Portable Audio & Video") {
         window.location.assign("/change5")
     }
 

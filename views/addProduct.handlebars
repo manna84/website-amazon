@@ -17,7 +17,6 @@
         <label for="category">Product Category</label>
         <select name="category" id="category">
             <option value="Select Category" selected>{{retainData.category}}</option>
-            {{!-- <option value="default" selected>{{retainData.category}}</option> --}}
             <option value="Camera,photo & video" {{#compare1 category}} {{select}} {{/compare1}}>Camera,photo & video</option>
             <option value="Cell Phone & Accessories" {{#compare2 category}} {{select}} {{/compare2}}>Cell Phone & Accessories</option>
             <option value="Headphones" {{#compare3 category}} {{select}} {{/compare3}}>Headphones</option>
@@ -28,7 +27,6 @@
         <label for="quantity">Product Quantity</label>
         <select name="quantity" id="quantity">
              <option value="Select Quantity" selected>{{retainData.quantity}}</option>
-             {{!-- <option value="default" selected>{{retainData.quantity}}</option> --}}
             <option value="1" {{#compare1 quantity}} {{select}} {{/compare1}}>1</option>
             <option value="2" {{#compare2 quantity}} {{select}} {{/compare2}}>2</option>
             <option value="3" {{#compare3 quantity}} {{select}} {{/compare3}}>3</option>

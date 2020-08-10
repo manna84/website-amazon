@@ -1,4 +1,3 @@
-
 <section class="banner row">
     <img src="./img/banner.png" alt="promotional banner">
 </section>
@@ -25,15 +24,15 @@
         </ul>
 
     </article>
-    
-   <article class="goods-list">
 
-       <ul>
-           {{#each data}}
-           <li><a href="/product-detail/{{this.id}}"><img src="./uploads/{{this.productimg}}"></a></li>
-           {{/each}}
-       </ul>
+    <article class="goods-list">
 
-   </article>
+        <ul>
+            {{#each data}}
+            <li><a href="/product-detail/{{this.id}}"><img src="./uploads/{{this.productimg}}"></a></li>
+            {{/each}}
+        </ul>
+
+    </article>
 
 </section>

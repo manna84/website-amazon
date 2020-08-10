@@ -1,5 +1,5 @@
-const userDashboard = (req,res)=>{
-    if(req.session.userInfo.type=="Admin") {
+const userDashboard = (req, res) => {
+    if (req.session.userInfo.type == "Admin") {
         res.redirect("/admin-dashboard")
     }
 

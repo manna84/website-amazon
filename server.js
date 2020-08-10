@@ -5,65 +5,66 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const fileUpload = require('express-fileupload');
 
-require('dotenv').config({path:"./config/keys.env"});
+require('dotenv').config({ path: "./config/keys.env" });
 
 const app = express();
 
 app.engine('handlebars', exphbs(
     {
-        helpers:{
-            compare1:function(value, options) {
-                let fix="selected"
-                if(value==1||value=="Camera,photo & video") {
-                    return options.fn({select:fix});
+        helpers: {
+            compare1: function (value, options) {
+                let fix = "selected"
+                if (value == 1 || value == "Camera,photo & video") {
+                    return options.fn({ select: fix });
                 }
             },
-            compare2:function(value, options) {
-                let fix="selected"
-                if(value==2||value=="Cell Phone & Accessories") {
-                    return options.fn({select:fix});
+            compare2: function (value, options) {
+                let fix = "selected"
+                if (value == 2 || value == "Cell Phone & Accessories") {
+                    return options.fn({ select: fix });
                 }
             },
-            compare3:function(value, options) {
-                let fix="selected"
-                if(value==3||value=="Headphones") {
-                    return options.fn({select:fix});
+            compare3: function (value, options) {
+                let fix = "selected"
+                if (value == 3 || value == "Headphones") {
+                    return options.fn({ select: fix });
                 }
             },
-            compare4:function(value, options) {
-                let fix="selected"
-                if(value==4||value=="Computers & Accessories") {
-                    return options.fn({select:fix});
+            compare4: function (value, options) {
+                let fix = "selected"
+                if (value == 4 || value == "Computers & Accessories") {
+                    return options.fn({ select: fix });
                 }
             },
-            compare5:function(value, options) {
-                let fix="selected"
-                if(value==5||value=="Portable Audio & Video") {
-                    return options.fn({select:fix});
+            compare5: function (value, options) {
+                let fix = "selected"
+                if (value == 5 || value == "Portable Audio & Video") {
+                    return options.fn({ select: fix });
                 }
             },
-            Totalprice:function(value,value2, options) {
-                if(value) {
-                    const total=value*value2;
-                    return options.fn({select:total});
+            Totalprice: function (value, value2, options) {
+                if (value) {
+                    const total = value * value2;
+                    return options.fn({ select: total });
                 }
             },
-            radioCompare:function(value, options) {
-                let fix="checked"
-                if(value=="yes") {
-                    return options.fn({check:fix});
+            radioCompare: function (value, options) {
+                let fix = "checked"
+                if (value == "yes") {
+                    return options.fn({ check: fix });
                 }
             },
-            radioCompare1:function(value, options) {
-                let fix="checked"
-                if(value=="no") {
-                    return options.fn({check:fix});
+            radioCompare1: function (value, options) {
+                let fix = "checked"
+                if (value == "no") {
+                    return options.fn({ check: fix });
                 }
             }
         }
     }
 
 ));
+
 app.set('view engine', 'handlebars');
 
 app.use(express.static("public"));
@@ -76,22 +77,22 @@ app.use(session({
     secret: `${process.env.SECRET_KEY}`,
     resave: false,
     saveUninitialized: true
-  }))
+}))
 
-app.use((req,res,next)=>{
-    res.locals.user= req.session.userInfo;
+app.use((req, res, next) => {
+    res.locals.user = req.session.userInfo;
     next();
 })
 
 app.use(fileUpload());
 
-app.use((req,res,next)=>{
-    if(req.query.method=="PUT") {
-        req.method="PUT"
+app.use((req, res, next) => {
+    if (req.query.method == "PUT") {
+        req.method = "PUT"
     }
 
-    else if(req.query.method=="DELETE") {
-        req.method="DELETE"
+    else if (req.query.method == "DELETE") {
+        req.method = "DELETE"
     }
 
     next();
@@ -100,14 +101,14 @@ app.use((req,res,next)=>{
 app.use("/", generalController);
 app.use("/", productController);
 
-mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, {useNewUrlParser: true, useUnifiedTopology: true})
-.then(()=>{
-    console.log(`Connected to MongoDB`);
-})
-.catch(err=>console.log(`Error occured connecting db ${err}`));
+mongoose.connect(process.env.MONGO_DB_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log(`Connected to MongoDB`);
+    })
+    .catch(err => console.log(`Error occured connecting db ${err}`));
 
 const PORT = process.env.PORT;
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log("Server is running");
 })
